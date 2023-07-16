@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Stack, Typography } from '@mui/joy';
+import { Stack, Typography } from '@mui/joy';
 
 export interface HeaderProps {
   title: React.ReactNode;

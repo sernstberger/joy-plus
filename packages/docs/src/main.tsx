@@ -1,5 +1,6 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
+import '@fontsource/public-sans';
 
 import App from './app/app';
 

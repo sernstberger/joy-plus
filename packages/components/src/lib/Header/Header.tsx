@@ -10,13 +10,18 @@ export interface HeaderProps {
 export function Header({ title, subtitle = null, action = null }: HeaderProps) {
   return (
     <Stack
-      direction="row"
+      direction={{ xs: 'column', sm: 'row' }}
       justifyContent="space-between"
       alignItems="flex-start"
+      spacing={1}
     >
       <div>
         <Typography level="h1">{title}</Typography>
-        {subtitle && <Typography level="h2">{subtitle}</Typography>}
+        {subtitle && (
+          <Typography level="h2" color="neutral">
+            {subtitle}
+          </Typography>
+        )}
       </div>
       {action && <div>{action}</div>}
     </Stack>

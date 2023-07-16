@@ -1268,6 +1268,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fontsource/public-sans@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/public-sans/-/public-sans-5.0.5.tgz#4de1e7fa1fed926be06a27c8f01544aa6d02a04c"
+  integrity sha512-HdC9hH6tSRTrznaaIioAkeRvK0/9N7zIFFjZZONF042Xh94978/5kEzOLgeqMdLerYAXkILEMnqbkMR/VGtUIA==
+
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.5"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.9.5.tgz#2cbaf9a89460da24b5ca6531b8bbfc23e1df50c7"

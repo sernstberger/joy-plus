@@ -18,7 +18,11 @@ export function Header({ title, subtitle = null, action = null }: HeaderProps) {
       <div>
         <Typography level="h1">{title}</Typography>
         {subtitle && (
-          <Typography level="h2" color="neutral">
+          <Typography
+            level="h2"
+            textColor="text.secondary"
+            // color="neutral"
+          >
             {subtitle}
           </Typography>
         )}

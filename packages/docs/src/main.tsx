@@ -3,6 +3,12 @@ import * as ReactDOM from 'react-dom/client';
 import '@fontsource/public-sans';
 import { CssVarsProvider, extendTheme } from '@mui/joy/styles';
 
+import {
+  experimental_extendTheme as materialExtendTheme,
+  Experimental_CssVarsProvider as MaterialCssVarsProvider,
+  THEME_ID as MATERIAL_THEME_ID,
+} from '@mui/material/styles';
+
 import App from './app/app';
 import { CssBaseline } from '@mui/joy';
 
@@ -32,11 +38,15 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const materialTheme = materialExtendTheme();
+
 root.render(
   <StrictMode>
-    <CssVarsProvider theme={githubTheme}>
-      <CssBaseline />
-      <App />
-    </CssVarsProvider>
+    <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
+      <CssVarsProvider theme={githubTheme}>
+        <CssBaseline />
+        <App />
+      </CssVarsProvider>
+    </MaterialCssVarsProvider>
   </StrictMode>
 );

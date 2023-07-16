@@ -1,12 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-
-import NxWelcome from './nx-welcome';
+import { Header } from 'components';
+import { Button } from '@mui/joy';
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="docs" />
+      <Header
+        title="Welcome to Joy+"
+        subtitle="This is the header component"
+        action={
+          <Button variant="solid" color="primary">
+            Go
+          </Button>
+        }
+      />
     </div>
   );
 }

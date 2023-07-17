@@ -1,32 +1,34 @@
-import { ChartCard, Header, Stat } from 'components';
-import { Button, Card, Container, Grid } from '@mui/joy';
+import { ChartCard, Form, Header, Stat } from 'components';
+import {
+  Button,
+  Container,
+  FormControl,
+  FormHelperText,
+  FormLabel,
+  Grid,
+  Input,
+} from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 
-import { FormProvider, useForm, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
-export const ConnectForm = ({ children }: any) => {
+export const ConnectInput = ({ children }: any) => {
   const methods = useFormContext();
 
   return children({ ...methods });
 };
 
-export const DeepNest = () => (
-  <ConnectForm>
-    {({ register }: any) => <input {...register('deepNestedInput')} />}
-  </ConnectForm>
+export const TextInput = ({ fieldName }: any) => (
+  <ConnectInput>
+    {({ register }: any) => (
+      <FormControl {...register(fieldName)}>
+        <FormLabel>Label</FormLabel>
+        <Input placeholder="Placeholder" />
+        <FormHelperText>This is a helper text.</FormHelperText>
+      </FormControl>
+    )}
+  </ConnectInput>
 );
-
-export const Foo = () => {
-  const methods = useForm();
-
-  return (
-    <FormProvider {...methods}>
-      <form>
-        <DeepNest />
-      </form>
-    </FormProvider>
-  );
-};
 
 export function App() {
   return (
@@ -73,7 +75,10 @@ export function App() {
           <ChartCard />
         </Grid>*/}
         <Grid xs={12} sm={4}>
-          <Foo />
+          <Form>
+            <TextInput fieldName="deepNestedInput" />
+            <TextInput fieldName="deepNestedInput2" />
+          </Form>
         </Grid>
       </Grid>
     </Container>

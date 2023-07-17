@@ -1,34 +1,34 @@
-import { Header, Stat } from 'components';
+import { ChartCard, Header, Stat } from 'components';
 import { Button, Card, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 
-const ChartCard = () => {
-  return (
-    <Card variant="outlined">
-      <Header
-        title="Chart Card"
-        subtitle="This has a chart in it."
-        action={
-          <Button variant="outlined" color="primary">
-            Go
-          </Button>
-        }
-      />
+// const ChartCard = () => {
+//   return (
+//     <Card variant="outlined">
+//       <Header
+//         title="Chart Card"
+//         subtitle="This has a chart in it."
+//         action={
+//           <Button variant="outlined" color="primary">
+//             Go
+//           </Button>
+//         }
+//       />
 
-      <Stat value={1234.56} previousValue={1234} />
+//       <Stat value={1234.56} previousValue={1234} />
 
-      <LineChart
-        xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-        series={[
-          {
-            data: [2, 5.5, 2, 8.5, 1.5, 5],
-          },
-        ]}
-        height={300}
-      />
-    </Card>
-  );
-};
+//       <LineChart
+//         xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+//         series={[
+//           {
+//             data: [2, 5.5, 2, 8.5, 1.5, 5],
+//           },
+//         ]}
+//         height={300}
+//       />
+//     </Card>
+//   );
+// };
 
 export function App() {
   return (
@@ -57,17 +57,27 @@ export function App() {
         </Grid>
       </Grid>
 
-      {/* <Grid container spacing={2}>
+      <Grid container spacing={2}>
         <Grid xs={12} sm={4}>
+          <ChartCard title="Chart Card" value={1234.56} previousValue={1234}>
+            <LineChart
+              xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+              series={[
+                {
+                  data: [2, 5.5, 2, 8.5, 1.5, 5],
+                },
+              ]}
+              height={200}
+            />
+          </ChartCard>
+        </Grid>
+        {/* <Grid xs={12} sm={4}>
           <ChartCard />
         </Grid>
         <Grid xs={12} sm={4}>
           <ChartCard />
-        </Grid>
-        <Grid xs={12} sm={4}>
-          <ChartCard />
-        </Grid>
-      </Grid> */}
+        </Grid> */}
+      </Grid>
     </Container>
   );
 }

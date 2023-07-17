@@ -2,6 +2,32 @@ import { ChartCard, Header, Stat } from 'components';
 import { Button, Card, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 
+import { FormProvider, useForm, useFormContext } from 'react-hook-form';
+
+export const ConnectForm = ({ children }: any) => {
+  const methods = useFormContext();
+
+  return children({ ...methods });
+};
+
+export const DeepNest = () => (
+  <ConnectForm>
+    {({ register }: any) => <input {...register('deepNestedInput')} />}
+  </ConnectForm>
+);
+
+export const Foo = () => {
+  const methods = useForm();
+
+  return (
+    <FormProvider {...methods}>
+      <form>
+        <DeepNest />
+      </form>
+    </FormProvider>
+  );
+};
+
 export function App() {
   return (
     <Container>
@@ -45,10 +71,10 @@ export function App() {
         </Grid>
         {/* <Grid xs={12} sm={4}>
           <ChartCard />
-        </Grid>
+        </Grid>*/}
         <Grid xs={12} sm={4}>
-          <ChartCard />
-        </Grid> */}
+          <Foo />
+        </Grid>
       </Grid>
     </Container>
   );

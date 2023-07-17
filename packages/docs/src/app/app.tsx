@@ -2,34 +2,6 @@ import { ChartCard, Header, Stat } from 'components';
 import { Button, Card, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 
-// const ChartCard = () => {
-//   return (
-//     <Card variant="outlined">
-//       <Header
-//         title="Chart Card"
-//         subtitle="This has a chart in it."
-//         action={
-//           <Button variant="outlined" color="primary">
-//             Go
-//           </Button>
-//         }
-//       />
-
-//       <Stat value={1234.56} previousValue={1234} />
-
-//       <LineChart
-//         xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-//         series={[
-//           {
-//             data: [2, 5.5, 2, 8.5, 1.5, 5],
-//           },
-//         ]}
-//         height={300}
-//       />
-//     </Card>
-//   );
-// };
-
 export function App() {
   return (
     <Container>

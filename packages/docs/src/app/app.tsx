@@ -1,34 +1,6 @@
-import { ChartCard, Form, Header, Stat } from 'components';
-import {
-  Button,
-  Container,
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  Grid,
-  Input,
-} from '@mui/joy';
+import { ChartCard, Form, Header, Stat, TextInput } from 'components';
+import { Button, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
-
-import { useFormContext } from 'react-hook-form';
-
-export const ConnectInput = ({ children }: any) => {
-  const methods = useFormContext();
-
-  return children({ ...methods });
-};
-
-export const TextInput = ({ fieldName }: any) => (
-  <ConnectInput>
-    {({ register }: any) => (
-      <FormControl {...register(fieldName)}>
-        <FormLabel>Label</FormLabel>
-        <Input placeholder="Placeholder" />
-        <FormHelperText>This is a helper text.</FormHelperText>
-      </FormControl>
-    )}
-  </ConnectInput>
-);
 
 export function App() {
   return (

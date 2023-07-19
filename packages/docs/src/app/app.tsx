@@ -48,8 +48,13 @@ export function App() {
         </Grid>*/}
         <Grid xs={12} sm={4}>
           <Form>
-            <TextInput fieldName="deepNestedInput" />
-            <TextInput fieldName="deepNestedInput2" />
+            <TextInput
+              fieldName="deepNestedInput"
+              label="Deep nested"
+              helperText="This is helper text."
+              required
+            />
+            <TextInput fieldName="deepNestedInput2" label="Deep nested 2" />
           </Form>
         </Grid>
       </Grid>

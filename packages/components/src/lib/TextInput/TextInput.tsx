@@ -1,26 +1,48 @@
 import { ConnectInput } from 'components';
-import { FormControl, FormHelperText, FormLabel, Input } from '@mui/joy';
+import {
+  FormControl,
+  FormHelperText,
+  FormLabel,
+  Input,
+  InputProps,
+} from '@mui/joy';
 
-export interface TextInputProps {
+export interface TextInputProps extends InputProps {
   fieldName: string;
+  label: string;
+  helperText?: string;
 }
 
-export function TextInput({ fieldName }: TextInputProps) {
+export function TextInput({
+  fieldName,
+  label,
+  helperText = undefined,
+  required = false,
+}: TextInputProps) {
   return (
     <ConnectInput>
-      {({ register }: any) => (
+      {({ register, formState }: any) => (
         <FormControl
           {...register(fieldName, {
-            required: true,
-            max: 2,
-            min: 1,
-            minLength: 2,
-            maxLength: 5,
+            required: { value: required, message: `${label} is required.` },
+            // max: 2,
+            // min: 1,
+            // minLength: 2,
+            // maxLength: 5,
           })}
+          required={required}
+          error={formState.errors[fieldName]}
         >
-          <FormLabel>Label</FormLabel>
+          <FormLabel>{label}</FormLabel>
           <Input placeholder="Placeholder" />
-          <FormHelperText>This is a helper text.</FormHelperText>
+          {/* {helperText && <FormHelperText>{helperText}</FormHelperText>} */}
+          {(helperText || formState.errors[fieldName]) && (
+            <FormHelperText>
+              {formState.errors[fieldName]
+                ? formState.errors[fieldName].message
+                : helperText}
+            </FormHelperText>
+          )}
         </FormControl>
       )}
     </ConnectInput>

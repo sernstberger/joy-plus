@@ -7,6 +7,8 @@ export interface ConnectInputProps {
 export function ConnectInput({ children }: ConnectInputProps) {
   const methods = useFormContext();
 
+  console.log('methods', methods.formState.errors);
+
   return children({ ...methods });
 }
 

@@ -4,6 +4,7 @@ export * from './EmailInput/EmailInput';
 export * from './Form/Form';
 export * from './Header/Header';
 export * from './NumberInput/NumberInput';
+export * from './PasswordInput/PasswordInput';
 export * from './PhoneInput/PhoneInput';
 export * from './Stat/Stat';
 export * from './TextInput/TextInput';

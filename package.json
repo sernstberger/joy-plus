@@ -19,7 +19,8 @@
     "react-hook-form": "^7.45.1",
     "react-number-format": "^5.2.2",
     "tslib": "^2.3.0",
-    "yup": "^1.2.0"
+    "yup": "^1.2.0",
+    "yup-password": "^0.2.2"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",

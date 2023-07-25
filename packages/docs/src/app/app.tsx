@@ -7,6 +7,7 @@ import {
   PhoneInput,
   NumberInput,
   EmailInput,
+  PasswordInput,
 } from 'components';
 import { Button, Card, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
@@ -66,7 +67,11 @@ export function App() {
           <Card variant="outlined">
             <Form>
               <EmailInput fieldName="emailInput" label="Email" required />
-              <TextInput fieldName="passwordInput" label="Password" required />
+              <PasswordInput
+                fieldName="passwordInput"
+                label="Password"
+                required
+              />
             </Form>
           </Card>
         </Grid>

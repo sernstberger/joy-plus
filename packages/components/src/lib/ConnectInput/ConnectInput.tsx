@@ -38,7 +38,7 @@ export function ConnectInput({
     //   },
     // },
     rules: rules({
-      label: label || name,
+      label: label,
       required,
       customValidation,
       // disabled,

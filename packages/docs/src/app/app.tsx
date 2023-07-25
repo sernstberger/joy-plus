@@ -1,4 +1,12 @@
-import { ChartCard, Form, Header, Stat, TextInput } from 'components';
+import {
+  ChartCard,
+  Form,
+  Header,
+  Stat,
+  TextInput,
+  PhoneInput,
+  NumberInput,
+} from 'components';
 import { Button, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 
@@ -54,7 +62,8 @@ export function App() {
               helperText="This is helper text."
               required
             />
-            <TextInput fieldName="deepNestedInput2" label="Deep nested 2" />
+            <NumberInput fieldName="deepNestedInput2" label="Deep nested 2" />
+            <PhoneInput fieldName="deepNestedInput3" label="Phone" />
           </Form>
         </Grid>
       </Grid>

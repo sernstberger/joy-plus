@@ -7,7 +7,11 @@ export interface FormProps {
 }
 
 export function Form({ children }: FormProps) {
-  const methods = useForm();
+  const methods = useForm({
+    defaultValues: {
+      // hello: "hi"
+    },
+  });
   const onSubmit = (data: any) => alert(JSON.stringify(data));
 
   return (

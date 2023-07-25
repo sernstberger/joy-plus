@@ -56,14 +56,9 @@ export function App() {
         </Grid>*/}
         <Grid xs={12} sm={4}>
           <Form>
-            <TextInput
-              fieldName="deepNestedInput"
-              label="Deep nested"
-              helperText="This is helper text."
-              required
-            />
-            <NumberInput fieldName="deepNestedInput2" label="Deep nested 2" />
-            <PhoneInput fieldName="deepNestedInput3" label="Phone" />
+            <TextInput fieldName="textInput" label="Text" required />
+            <NumberInput fieldName="numberInput" label="Number" required />
+            <PhoneInput fieldName="phoneInput" label="Phone" required />
           </Form>
         </Grid>
       </Grid>

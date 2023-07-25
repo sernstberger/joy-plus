@@ -1,5 +1,13 @@
-import { ChartCard, Header, Stat } from 'components';
-import { Button, Card, Container, Grid } from '@mui/joy';
+import {
+  ChartCard,
+  Form,
+  Header,
+  Stat,
+  TextInput,
+  PhoneInput,
+  NumberInput,
+} from 'components';
+import { Button, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 
 export function App() {
@@ -45,10 +53,14 @@ export function App() {
         </Grid>
         {/* <Grid xs={12} sm={4}>
           <ChartCard />
-        </Grid>
+        </Grid>*/}
         <Grid xs={12} sm={4}>
-          <ChartCard />
-        </Grid> */}
+          <Form>
+            <TextInput fieldName="textInput" label="Text" required />
+            <NumberInput fieldName="numberInput" label="Number" required />
+            <PhoneInput fieldName="phoneInput" label="Phone" required />
+          </Form>
+        </Grid>
       </Grid>
     </Container>
   );

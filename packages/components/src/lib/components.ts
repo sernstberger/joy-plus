@@ -1,5 +1,6 @@
 export * from './ChartCard/ChartCard';
 export * from './ConnectInput/ConnectInput';
+export * from './EmailInput/EmailInput';
 export * from './Form/Form';
 export * from './Header/Header';
 export * from './NumberInput/NumberInput';

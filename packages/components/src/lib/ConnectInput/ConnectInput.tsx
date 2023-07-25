@@ -1,5 +1,6 @@
 import { useController } from 'react-hook-form';
 import { FormControl, FormHelperText, FormLabel } from '@mui/joy';
+import rules from './rules';
 
 export interface ConnectInputProps {
   children: any;
@@ -8,6 +9,7 @@ export interface ConnectInputProps {
   required?: boolean;
   helperText?: string;
   defaultValue: any;
+  customValidation?: any;
 }
 
 export function ConnectInput({
@@ -17,19 +19,34 @@ export function ConnectInput({
   required = false,
   helperText,
   defaultValue,
+  customValidation,
 }: ConnectInputProps) {
   const methods = useController({
     name: fieldName,
-    rules: {
-      required: {
-        value: required,
-        message: `${label} is required.`,
-      },
-      // max: 2,
-      // min: 1,
-      // minLength: 2,
-      // maxLength: 5
-    },
+    // rules: {
+    //   required: {
+    //     value: required,
+    //     message: `${label} is required.`,
+    //   },
+    //   // max: 2,
+    //   // min: 1,
+    //   // minLength: 2,
+    //   // maxLength: 5
+    //   validate: (value) => {
+    //     console.log('validate', value);
+    //     return true;
+    //   },
+    // },
+    rules: rules({
+      label: label || name,
+      required,
+      customValidation,
+      // disabled,
+      // minLength,
+      // maxLength,
+      // min,
+      // max,
+    }),
     defaultValue,
   });
 

@@ -8,8 +8,17 @@ import {
   NumberInput,
   EmailInput,
   PasswordInput,
+  PlayerControls,
 } from 'components';
-import { Button, Card, Container, Grid } from '@mui/joy';
+import {
+  Button,
+  Card,
+  Container,
+  Grid,
+  IconButton,
+  LinearProgress,
+  Stack,
+} from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 
 export function App() {
@@ -74,6 +83,9 @@ export function App() {
               />
             </Form>
           </Card>
+        </Grid>
+        <Grid xs={12} sm={4}>
+          <PlayerControls />
         </Grid>
       </Grid>
     </Container>

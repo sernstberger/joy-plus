@@ -6,5 +6,6 @@ export * from './Header/Header';
 export * from './NumberInput/NumberInput';
 export * from './PasswordInput/PasswordInput';
 export * from './PhoneInput/PhoneInput';
+export * from './PlayerControls/PlayerControls';
 export * from './Stat/Stat';
 export * from './TextInput/TextInput';

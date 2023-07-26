@@ -1,27 +1,36 @@
-import { Card, InputProps, IconButton, LinearProgress, Stack } from '@mui/joy';
+import { useEffect, useState } from 'react';
+import { Card, IconButton, LinearProgress, Stack, Typography } from '@mui/joy';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import ShuffleIcon from '@mui/icons-material/Shuffle';
 import RepeatIcon from '@mui/icons-material/Repeat';
-import { useState } from 'react';
 
-export interface PlayerControlsProps extends InputProps {
-  // fieldName: string;
-  // label: string;
-  // helperText?: string;
-  // defaultValue?: string;
+export interface PlayerControlsProps {
+  mediaLength: number; // length of the media in seconds
 }
 
-export function PlayerControls({}: // fieldName,
-// label,
-// helperText = undefined,
-// required = false,
-// defaultValue,
-PlayerControlsProps) {
+export function PlayerControls({ mediaLength }: PlayerControlsProps) {
   const [playing, setPlaying] = useState(false);
   const [shuffle, setShuffle] = useState(false);
+  const [repeat, setRepeat] = useState(false);
+
+  const [currentTime, setCurrentTime] = useState(0); // current time of the media in seconds
+
+  // update currentTime every second if the media is playing
+  useEffect(() => {
+    if (playing) {
+      const interval = setInterval(() => {
+        setCurrentTime((prevTime) => prevTime + 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [playing]);
+
+  // calculate progress bar value
+  const progress = (currentTime / mediaLength) * 100;
+
   return (
     <Card variant="outlined">
       <Stack
@@ -30,32 +39,40 @@ PlayerControlsProps) {
         alignItems="center"
         justifyContent="center"
       >
-        <IconButton variant="plain" color={shuffle ? 'primary' : 'neutral'}>
+        <IconButton
+          variant="plain"
+          color={shuffle ? 'primary' : 'neutral'}
+          onClick={() => setShuffle(!shuffle)}
+        >
           <ShuffleIcon />
         </IconButton>
         <IconButton variant="plain" color="neutral">
           <SkipPreviousIcon />
         </IconButton>
-        <IconButton
-          sx={
-            {
-              // '--IconButton-size': '50px',
-            }
-          }
-          onClick={() => setPlaying(!playing)}
-          // color={playing ? 'primary' : 'neutral'}
-          color="primary"
-        >
+        <IconButton onClick={() => setPlaying(!playing)} color="primary">
           {playing ? <PauseIcon /> : <PlayArrowIcon />}
         </IconButton>
         <IconButton variant="plain" color="neutral">
           <SkipNextIcon />
         </IconButton>
-        <IconButton variant="plain" color="neutral">
+        <IconButton
+          variant="plain"
+          color={repeat ? 'primary' : 'neutral'}
+          onClick={() => setRepeat(!repeat)}
+        >
           <RepeatIcon />
         </IconButton>
       </Stack>
-      <LinearProgress determinate value={24} />
+      <LinearProgress determinate value={progress} />
+      <Stack
+        direction="row"
+        spacing={2}
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Typography level="body3">{currentTime}</Typography>
+        <Typography level="body3">{mediaLength}</Typography>
+      </Stack>
     </Card>
   );
 }

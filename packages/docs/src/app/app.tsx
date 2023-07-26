@@ -85,7 +85,7 @@ export function App() {
           </Card>
         </Grid>
         <Grid xs={12} sm={4}>
-          <PlayerControls mediaLength={100} />
+          <PlayerControls mediaLength={10} />
         </Grid>
       </Grid>
     </Container>

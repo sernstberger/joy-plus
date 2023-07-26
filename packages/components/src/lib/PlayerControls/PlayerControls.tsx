@@ -15,18 +15,31 @@ export function PlayerControls({ mediaLength }: PlayerControlsProps) {
   const [playing, setPlaying] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   const [repeat, setRepeat] = useState(false);
-
   const [currentTime, setCurrentTime] = useState(0); // current time of the media in seconds
+
+  function formatTime(seconds: number) {
+    const min = Math.floor(seconds / 60);
+    const sec = seconds % 60;
+    return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+  }
 
   // update currentTime every second if the media is playing
   useEffect(() => {
     if (playing) {
       const interval = setInterval(() => {
-        setCurrentTime((prevTime) => prevTime + 1);
+        setCurrentTime((prevTime) => {
+          if (prevTime < mediaLength) {
+            return prevTime + 1;
+          } else {
+            // stop the media when it reaches the end
+            setPlaying(false);
+            return mediaLength;
+          }
+        });
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [playing]);
+  }, [playing, mediaLength]);
 
   // calculate progress bar value
   const progress = (currentTime / mediaLength) * 100;
@@ -46,13 +59,21 @@ export function PlayerControls({ mediaLength }: PlayerControlsProps) {
         >
           <ShuffleIcon />
         </IconButton>
-        <IconButton variant="plain" color="neutral">
+        <IconButton
+          variant="plain"
+          color="neutral"
+          onClick={() => setCurrentTime(0)}
+        >
           <SkipPreviousIcon />
         </IconButton>
         <IconButton onClick={() => setPlaying(!playing)} color="primary">
           {playing ? <PauseIcon /> : <PlayArrowIcon />}
         </IconButton>
-        <IconButton variant="plain" color="neutral">
+        <IconButton
+          variant="plain"
+          color="neutral"
+          onClick={() => setCurrentTime(mediaLength)}
+        >
           <SkipNextIcon />
         </IconButton>
         <IconButton
@@ -70,8 +91,8 @@ export function PlayerControls({ mediaLength }: PlayerControlsProps) {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Typography level="body3">{currentTime}</Typography>
-        <Typography level="body3">{mediaLength}</Typography>
+        <Typography level="body3">{formatTime(currentTime)}</Typography>
+        <Typography level="body3">{formatTime(mediaLength)}</Typography>
       </Stack>
     </Card>
   );

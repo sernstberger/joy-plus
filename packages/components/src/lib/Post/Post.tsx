@@ -1,21 +1,24 @@
+import Button from '@mui/joy/Button';
 import Card from '@mui/joy/Card';
 import CardCover from '@mui/joy/CardCover';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
-import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import { Box } from '@mui/joy';
 
-export function Post() {
+interface PostProps {
+  imgSrc: string;
+  imgSrcSet: string;
+  imgAlt: string;
+  title: string;
+  content: string;
+}
+
+export function Post({ imgSrc, imgSrcSet, imgAlt, title, content }: PostProps) {
   return (
     <div>
       <Card sx={{ minHeight: '280px', padding: 0 }}>
         <CardCover>
-          <img
-            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
-            loading="lazy"
-            alt=""
-          />
+          <img src={imgSrc} srcSet={imgSrcSet} loading="lazy" alt={imgAlt} />
         </CardCover>
         <CardContent
           sx={{
@@ -30,23 +33,19 @@ export function Post() {
               padding: 2,
             }}
           >
-            <Typography textColor="#fff">A caption goes here</Typography>
+            <Typography textColor="#fff" level="body2">
+              {imgAlt}
+            </Typography>
           </Box>
         </CardContent>
       </Card>
-      <Typography
-        level="h2"
-        // fontSize="lg"
-        //  mb={1}
-      >
-        Yosemite National Park
+      <Typography level="h2" marginTop={1}>
+        {title}
       </Typography>
-      <Typography
-      // startDecorator={<LocationOnRoundedIcon />}
-      // textColor="neutral.300"
-      >
-        California, USA
-      </Typography>
+      <Typography>{content}</Typography>
+      <Button variant="solid" color="primary" sx={{ marginTop: 2 }}>
+        Read more
+      </Button>
     </div>
   );
 }

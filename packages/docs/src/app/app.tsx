@@ -9,6 +9,7 @@ import {
   EmailInput,
   PasswordInput,
   PlayerControls,
+  Post,
 } from 'components';
 import {
   Button,
@@ -86,6 +87,9 @@ export function App() {
         </Grid>
         <Grid xs={12} sm={4}>
           <PlayerControls mediaLength={10} />
+        </Grid>
+        <Grid xs={12} sm={4}>
+          <Post />
         </Grid>
       </Grid>
     </Container>

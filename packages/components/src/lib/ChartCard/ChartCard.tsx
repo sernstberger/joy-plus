@@ -1,5 +1,6 @@
+import React from 'react';
 import { Header, HeaderProps, Stat, StatProps } from '../..';
-import { Button, Card, Container, Grid } from '@mui/joy';
+import { Card } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 
 export interface ChartCardProps extends HeaderProps, StatProps {

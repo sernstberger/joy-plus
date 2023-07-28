@@ -1,11 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import TextInput from '../TextInput/TextInput';
+import NumberInput from './NumberInput';
+import { Form } from '../components';
 
 describe('TextInput', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<TextInput fieldName="test" label="Test" />);
+    const { baseElement } = render(
+      <Form>
+        <NumberInput fieldName="number" label="Number" />
+      </Form>
+    );
     expect(baseElement).toBeTruthy();
   });
 });

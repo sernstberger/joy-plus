@@ -1,3 +1,4 @@
+import React from 'react';
 import { NumericFormat } from 'react-number-format';
 import { ConnectInput } from '../ConnectInput';
 import { Input, InputProps } from '@mui/joy';

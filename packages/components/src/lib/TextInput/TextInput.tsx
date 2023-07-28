@@ -1,3 +1,4 @@
+import React from 'react';
 import { ConnectInput } from '../ConnectInput';
 import { Input, InputProps } from '@mui/joy';
 

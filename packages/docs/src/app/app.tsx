@@ -12,7 +12,7 @@ import {
   Post,
   AppCard,
 } from 'components';
-import { Button, Card, Container, Grid } from '@mui/joy';
+import { Button, Card, Checkbox, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 
 export function App() {
@@ -75,6 +75,7 @@ export function App() {
                 label="Password"
                 required
               />
+              <Checkbox label="Remember me" required />
             </Form>
           </Card>
         </Grid>

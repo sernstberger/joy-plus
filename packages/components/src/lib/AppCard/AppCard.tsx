@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Avatar from '@mui/joy/Avatar';
 import Button from '@mui/joy/Button';
 import Card from '@mui/joy/Card';
@@ -5,19 +6,18 @@ import CardActions from '@mui/joy/CardActions';
 import Typography from '@mui/joy/Typography';
 import { Divider, IconButton, Stack, Switch } from '@mui/joy';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import { useState } from 'react';
 
 interface AppCardProps {
-  imgSrc: string;
+  img: string;
   title: string;
-  content: string;
+  description: string;
   installed?: boolean;
 }
 
 export function AppCard({
-  imgSrc,
+  img,
   title,
-  content,
+  description,
   installed = false,
 }: AppCardProps) {
   const [isInstalled, setIsInstalled] = useState(installed);
@@ -26,7 +26,7 @@ export function AppCard({
     <Card variant="outlined">
       <Stack direction="row" spacing={2}>
         <Avatar
-          src={imgSrc}
+          src={img}
           sx={(theme) => ({
             '--Avatar-radius': theme.spacing(1),
             '--Avatar-size': '60px',
@@ -35,7 +35,7 @@ export function AppCard({
 
         <div>
           <Typography level="body1">{title}</Typography>
-          <Typography level="body2">{content}</Typography>
+          <Typography level="body2">{description}</Typography>
         </div>
       </Stack>
       <Divider inset="context" />

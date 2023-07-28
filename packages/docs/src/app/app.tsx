@@ -92,9 +92,9 @@ export function App() {
         </Grid>
         <Grid xs={12} sm={4}>
           <AppCard
-            imgSrc="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+            img="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
             title="Yosemite National Park App"
-            content="This is the app for Yosemite National Park. It is fun to visit and learn things."
+            description="This is the app for Yosemite National Park. It is fun to visit and learn things."
           />
         </Grid>
       </Grid>

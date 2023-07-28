@@ -1,7 +1,11 @@
 import { ConnectInput } from '../ConnectInput';
-import { Input, InputProps } from '@mui/joy';
+import { IconButton, Input, InputProps } from '@mui/joy';
 import * as yup from 'yup';
 import YupPassword from 'yup-password';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import { useState } from 'react';
+import { UseControllerReturn } from 'react-hook-form';
 YupPassword(yup);
 
 export interface PasswordInputProps extends InputProps {
@@ -18,6 +22,7 @@ export function PasswordInput({
   required = false,
   defaultValue,
 }: PasswordInputProps) {
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <ConnectInput
       {...{ fieldName, label, required, helperText, defaultValue }}
@@ -33,8 +38,24 @@ export function PasswordInput({
         .minNumbers(1, 'password must contain at least 1 number')
         .minSymbols(1, 'password must contain at least 1 special character')}
     >
-      {({ formState, field }: any) => (
-        <Input value={field.value} type="password" />
+      {({ field }: UseControllerReturn) => (
+        <Input
+          value={field.value}
+          type={showPassword ? 'text' : 'password'}
+          endDecorator={
+            <IconButton
+              onClick={() => setShowPassword(!showPassword)}
+              variant="plain"
+              color="neutral"
+            >
+              {showPassword ? (
+                <VisibilityOffOutlinedIcon />
+              ) : (
+                <VisibilityOutlinedIcon />
+              )}
+            </IconButton>
+          }
+        />
       )}
     </ConnectInput>
   );

@@ -10,6 +10,7 @@ import {
   PasswordInput,
   PlayerControls,
   Post,
+  AppCard,
 } from 'components';
 import { Button, Card, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
@@ -87,6 +88,13 @@ export function App() {
             imgAlt="Tunnel View at Yosemite National Park"
             title="Yosemite National Park"
             content="This is the main content of my post. The post is about Yosemite National Park. It is fun to visit."
+          />
+        </Grid>
+        <Grid xs={12} sm={4}>
+          <AppCard
+            img="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+            title="Yosemite National Park App"
+            description="This is the app for Yosemite National Park. It is fun to visit and learn things."
           />
         </Grid>
       </Grid>

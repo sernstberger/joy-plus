@@ -1,10 +1,11 @@
+import React from 'react';
 import { render } from '@testing-library/react';
 
-import TextInput from './TextInput';
+import PhoneInput from './PhoneInput';
 
-describe('TextInput', () => {
+describe('PhoneInput', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<TextInput />);
+    const { baseElement } = render(<PhoneInput />);
     expect(baseElement).toBeTruthy();
   });
 });

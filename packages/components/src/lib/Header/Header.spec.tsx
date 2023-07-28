@@ -5,7 +5,7 @@ import Header from './Header';
 
 describe('Header', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Header />);
+    const { baseElement } = render(<Header title="Title goes here" />);
     expect(baseElement).toBeTruthy();
   });
 });

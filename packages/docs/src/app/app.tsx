@@ -14,6 +14,7 @@ import {
 } from 'components';
 import { Button, Card, Checkbox, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
+import { GitHub } from '@mui/icons-material';
 
 export function App() {
   return (
@@ -22,8 +23,15 @@ export function App() {
         title="Welcome to Joy+"
         subtitle="This is the header component"
         action={
-          <Button variant="solid" color="primary">
-            Go
+          <Button
+            variant="outlined"
+            color="neutral"
+            startDecorator={<GitHub />}
+            component="a"
+            href="https://github.com/sernstberger/joy-plus"
+            target="_blank"
+          >
+            GitHub
           </Button>
         }
       />

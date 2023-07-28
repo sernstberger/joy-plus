@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import '@fontsource/public-sans';
+import '@fontsource/inter';
 import { CssVarsProvider, extendTheme } from '@mui/joy/styles';
 
 import {
@@ -19,6 +19,10 @@ const githubTheme = extendTheme({
         // nothing
       },
     },
+  },
+  fontFamily: {
+    body: 'Inter, sans-serif',
+    display: 'Inter, sans-serif',
   },
   typography: {
     h1: {

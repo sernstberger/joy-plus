@@ -1,3 +1,4 @@
+import React from 'react';
 import { PatternFormat } from 'react-number-format';
 import { ConnectInput } from '../ConnectInput';
 import { Input, InputProps } from '@mui/joy';
@@ -24,6 +25,7 @@ export function PhoneInput({
           allowEmptyFormatting
           customInput={Input}
           value={field.value}
+          type="tel"
         />
       )}
     </ConnectInput>

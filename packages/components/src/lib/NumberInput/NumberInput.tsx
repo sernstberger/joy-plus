@@ -23,8 +23,16 @@ export function NumberInput({
         <NumericFormat
           allowLeadingZeros
           thousandSeparator=","
-          customInput={Input}
-          placeholder="Placeholder"
+          customInput={(props: any) => (
+            <Input
+              {...props}
+              slotProps={{
+                input: {
+                  inputMode: 'numeric',
+                },
+              }}
+            />
+          )}
           value={field.value}
         />
       )}

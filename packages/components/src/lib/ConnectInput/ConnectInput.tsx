@@ -10,6 +10,7 @@ export interface ConnectInputProps {
   helperText?: string;
   defaultValue: any;
   customValidation?: any;
+  labelHidden?: boolean;
 }
 
 export function ConnectInput({
@@ -20,6 +21,7 @@ export function ConnectInput({
   helperText,
   defaultValue,
   customValidation,
+  labelHidden = false,
 }: ConnectInputProps) {
   const methods = useController({
     name: fieldName,
@@ -50,7 +52,7 @@ export function ConnectInput({
     defaultValue,
   });
 
-  console.log('methods', fieldName, methods);
+  // console.log('methods', fieldName, methods);
 
   return (
     <FormControl
@@ -59,7 +61,7 @@ export function ConnectInput({
       required={required}
       error={!!methods.fieldState.error?.message}
     >
-      <FormLabel>{label}</FormLabel>
+      {!labelHidden && <FormLabel>{label}</FormLabel>}
       {children({ ...methods })}
       {(helperText || methods.fieldState.error) && (
         <FormHelperText>

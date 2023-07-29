@@ -15,10 +15,17 @@ export function TextInput({
   helperText = undefined,
   required = false,
   defaultValue,
+  disabled = false,
+  ...rest
 }: TextInputProps) {
   return (
-    <ConnectInput {...{ fieldName, label, required, helperText, defaultValue }}>
-      {({ formState, field }: any) => <Input value={field.value} />}
+    <ConnectInput
+      {...{ fieldName, label, required, helperText, defaultValue, disabled }}
+      {...rest}
+    >
+      {({ formState, field }: any) => (
+        <Input value={field.value} disabled={disabled} />
+      )}
     </ConnectInput>
   );
 }

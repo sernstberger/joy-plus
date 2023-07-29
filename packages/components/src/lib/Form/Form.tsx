@@ -1,5 +1,5 @@
 import { Button, Stack } from '@mui/joy';
-
+import { DevTool } from '@hookform/devtools';
 import { FormProvider, useForm } from 'react-hook-form';
 
 export interface FormProps {
@@ -24,6 +24,7 @@ export function Form({ children }: FormProps) {
           </Button>
         </Stack>
       </form>
+      <DevTool control={methods.control} /> {/* set up the dev tool */}
     </FormProvider>
   );
 }

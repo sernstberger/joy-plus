@@ -10,6 +10,19 @@ export interface NumberInputProps extends InputProps {
   defaultValue?: string;
 }
 
+const CustomInput = React.forwardRef((props: any, ref) => (
+  <Input
+    {...props}
+    ref={ref}
+    slotProps={{
+      input: {
+        inputMode: 'numeric',
+        // inputMode: 'decimal',
+      },
+    }}
+  />
+));
+
 export function NumberInput({
   fieldName,
   label,
@@ -21,18 +34,9 @@ export function NumberInput({
     <ConnectInput {...{ fieldName, label, required, helperText, defaultValue }}>
       {({ formState, field }: any) => (
         <NumericFormat
-          allowLeadingZeros
+          allowLeadingZeros={false}
           thousandSeparator=","
-          customInput={(props: any) => (
-            <Input
-              {...props}
-              slotProps={{
-                input: {
-                  inputMode: 'numeric',
-                },
-              }}
-            />
-          )}
+          customInput={CustomInput}
           value={field.value}
         />
       )}

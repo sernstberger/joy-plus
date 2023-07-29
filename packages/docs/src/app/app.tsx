@@ -11,6 +11,7 @@ import {
   PlayerControls,
   Post,
   AppCard,
+  CheckboxInput,
 } from 'components';
 import { Button, Card, Checkbox, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
@@ -72,6 +73,7 @@ export function App() {
             <TextInput fieldName="textInput" label="Text" required />
             <NumberInput fieldName="numberInput" label="Number" required />
             <PhoneInput fieldName="phoneInput" label="Phone" required />
+            <CheckboxInput fieldName="remember" label="Remember me" />
           </Form>
         </Grid>
         <Grid xs={12} sm={4}>
@@ -83,7 +85,12 @@ export function App() {
                 label="Password"
                 required
               />
-              <Checkbox label="Remember me" required />
+              <CheckboxInput
+                fieldName="agree"
+                label="I agree to disagree"
+                required
+                defaultChecked={true}
+              />
             </Form>
           </Card>
         </Grid>

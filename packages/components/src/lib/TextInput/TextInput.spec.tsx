@@ -42,12 +42,12 @@ describe('TextInput', () => {
     expect(getByLabelText('Test')).toBeDisabled();
   });
 
-  // it('should render a default value', () => {
-  //   const { getByLabelText } = render(
-  //     <Form>
-  //       <TextInput fieldName="test" label="Test" defaultValue="Default value" />
-  //     </Form>,
-  //   );
-  //   expect(getByLabelText('Test')).toHaveValue('Default value');
-  // });
+  it('should render a default value', () => {
+    const { getByLabelText } = render(
+      <Form>
+        <TextInput fieldName="test" label="Test" defaultValue="Default value" />
+      </Form>,
+    );
+    expect(getByLabelText('Test')).toHaveValue('Default value');
+  });
 });

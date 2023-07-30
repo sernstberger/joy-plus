@@ -3,6 +3,7 @@ export * from './ChartCard/ChartCard';
 export * from './CheckboxInput/CheckboxInput';
 export * from './ConnectInput/ConnectInput';
 export * from './EmailInput/EmailInput';
+export * from './FileUploadInput/FileUploadInput';
 export * from './Form/Form';
 export * from './Header/Header';
 export * from './NumberInput/NumberInput';

@@ -66,9 +66,6 @@ export function App() {
             />
           </ChartCard>
         </Grid>
-        {/* <Grid xs={12} sm={4}>
-          <ChartCard />
-        </Grid>*/}
         <Grid xs={12} sm={4}>
           <Form>
             <TextInput fieldName="textInput" label="Text" required />
@@ -80,7 +77,7 @@ export function App() {
         </Grid>
         <Grid xs={12} sm={4}>
           <Card variant="outlined">
-            {/* <Form>
+            <Form>
               <EmailInput fieldName="emailInput" label="Email" required />
               <PasswordInput
                 fieldName="passwordInput"
@@ -93,7 +90,7 @@ export function App() {
                 required
                 defaultChecked={true}
               />
-            </Form> */}
+            </Form>
           </Card>
         </Grid>
         <Grid xs={12} sm={4}>

@@ -17,7 +17,10 @@ export function FileUploadInput() {
     setFiles((prevFiles: any) => [...prevFiles, ...acceptedFiles]);
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: ['image/*'] as any,
+  });
 
   return (
     <div {...getRootProps()}>

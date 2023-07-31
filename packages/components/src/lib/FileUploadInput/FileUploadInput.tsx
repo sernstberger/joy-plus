@@ -1,5 +1,12 @@
 import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
-import { Sheet, Stack, Typography } from '@mui/joy';
+import {
+  List,
+  ListDivider,
+  ListItem,
+  Sheet,
+  Stack,
+  Typography,
+} from '@mui/joy';
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
@@ -26,13 +33,19 @@ export function FileUploadInput() {
           <Typography level="body2">Other things</Typography>
         </Stack>
       </Sheet>
-      <ul>
+      <List variant="outlined" sx={{ marginTop: 2 }}>
         {files.map((file: any, index: number) => (
-          <li key={index}>
-            {file.name} - {file.size} bytes
-          </li>
+          <>
+            <ListItem key={index}>
+              <div>
+                <Typography>{file.name}</Typography>
+                <Typography level="body2">{file.size} bytes</Typography>
+              </div>
+            </ListItem>
+            <ListDivider />
+          </>
         ))}
-      </ul>
+      </List>
     </div>
   );
 }

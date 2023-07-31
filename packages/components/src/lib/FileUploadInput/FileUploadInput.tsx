@@ -33,19 +33,21 @@ export function FileUploadInput() {
           <Typography level="body2">Other things</Typography>
         </Stack>
       </Sheet>
-      <List variant="outlined" sx={{ marginTop: 2 }}>
-        {files.map((file: any, index: number) => (
-          <>
-            <ListItem key={index}>
-              <div>
-                <Typography>{file.name}</Typography>
-                <Typography level="body2">{file.size} bytes</Typography>
-              </div>
-            </ListItem>
-            <ListDivider />
-          </>
-        ))}
-      </List>
+      {files && files.length > 0 && (
+        <List variant="outlined" sx={{ marginTop: 2 }}>
+          {files.map((file: any, index: number) => (
+            <>
+              <ListItem key={index}>
+                <div>
+                  <Typography>{file.name}</Typography>
+                  <Typography level="body2">{file.size} bytes</Typography>
+                </div>
+              </ListItem>
+              {files.length > 0 && index < files.length - 1 && <ListDivider />}
+            </>
+          ))}
+        </List>
+      )}
     </div>
   );
 }

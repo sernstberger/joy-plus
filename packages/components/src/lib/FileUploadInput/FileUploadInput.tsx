@@ -1,75 +1,38 @@
-// import React from 'react';
-// import { ConnectInput } from '../ConnectInput';
-// import { Checkbox, CheckboxProps } from '@mui/joy';
-
-// export interface FileUploadInputProps extends CheckboxProps {
-//   fieldName: string;
-//   label: string;
-//   helperText?: string;
-//   // defaultValue?: boolean;
-// }
-
-// export function FileUploadInput({
-//   fieldName,
-//   label,
-//   helperText = undefined,
-//   required = false,
-//   defaultValue = undefined,
-//   defaultChecked = false,
-// }: FileUploadInputProps) {
-//   return (
-//     <ConnectInput
-//       {...{
-//         fieldName,
-//         label,
-//         required,
-//         helperText,
-//         defaultValue,
-//         defaultChecked,
-//       }}
-//       labelHidden
-//     >
-//       {({ formState, field }: any) => (
-//         <Checkbox label={label} required value={field.value} />
-//       )}
-//     </ConnectInput>
-//   );
-// }
-
-// export default FileUploadInput;
-
-import { FileUpload } from '@mui/icons-material';
-import { Sheet } from '@mui/joy';
-import React, { useCallback } from 'react';
+import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
+import { Sheet, Stack, Typography } from '@mui/joy';
+import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 export function FileUploadInput() {
+  const [files, setFiles] = useState<any>([]);
+
   const onDrop = useCallback((acceptedFiles: any) => {
-    // Do something with the files
+    setFiles((prevFiles: any) => [...prevFiles, ...acceptedFiles]);
   }, []);
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
-      {/* {isDragActive ? (
-        <Sheet color="primary" variant="outlined">
-          Drop the files here ...
-        </Sheet>
-      ) : (
-        <Sheet color="neutral" variant="outlined">
-          Drag 'n' drop some files here, or click to select files
-          <FileUpload />
-        </Sheet>
-      )} */}
       <Sheet
         color={isDragActive ? 'primary' : 'neutral'}
         variant="outlined"
         sx={{ padding: 2, borderStyle: 'dashed', borderWidth: 2 }}
       >
-        Drag 'n' drop some files here, or click to select files
-        <FileUpload />
+        <Stack alignItems="center" justifyContent="center">
+          <CloudUploadOutlinedIcon />
+          <Typography>Drag and drop files, or click to select files</Typography>
+          <Typography level="body2">Other things</Typography>
+        </Stack>
       </Sheet>
+      <ul>
+        {files.map((file: any, index: number) => (
+          <li key={index}>
+            {file.name} - {file.size} bytes
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

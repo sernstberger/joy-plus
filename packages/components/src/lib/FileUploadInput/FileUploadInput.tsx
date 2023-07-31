@@ -33,7 +33,7 @@ export function FileUploadInput() {
         <Stack alignItems="center" justifyContent="center">
           <CloudUploadOutlinedIcon />
           <Typography>Drag and drop files, or click to select files</Typography>
-          <Typography level="body2">Other things</Typography>
+          {/* <Typography level="body2">Other things</Typography> */}
         </Stack>
       </Sheet>
       {files && files.length > 0 && (

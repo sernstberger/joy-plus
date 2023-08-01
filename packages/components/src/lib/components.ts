@@ -1,5 +1,6 @@
 export * from './AppCard/AppCard';
 export * from './ChartCard/ChartCard';
+export * from './ChatBubble/ChatBubble';
 export * from './CheckboxInput/CheckboxInput';
 export * from './ConnectInput/ConnectInput';
 export * from './EmailInput/EmailInput';

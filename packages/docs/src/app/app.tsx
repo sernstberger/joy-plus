@@ -13,6 +13,7 @@ import {
   AppCard,
   CheckboxInput,
   FileUploadInput,
+  ChatBubble,
 } from 'components';
 import { Button, Card, Checkbox, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
@@ -43,12 +44,14 @@ export function App() {
           <Stat value={1234.56} previousValue={1233} />
         </Grid>
         <Grid xs={12} sm={4}>
-          {/* <ChartCard /> */}
-          <Stat value={1234.56} previousValue={1234.56} />
+          <PlayerControls mediaLength={10} />
         </Grid>
         <Grid xs={12} sm={4}>
-          {/* <ChartCard /> */}
-          <Stat value={1234.56} previousValue={1253} />
+          <AppCard
+            img="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+            title="Yosemite National Park App"
+            description="This is the app for Yosemite National Park. It is fun to visit and learn things."
+          />
         </Grid>
       </Grid>
 
@@ -93,9 +96,7 @@ export function App() {
             </Form>
           </Card>
         </Grid>
-        <Grid xs={12} sm={4}>
-          <PlayerControls mediaLength={10} />
-        </Grid>
+
         <Grid xs={12} sm={4}>
           <Post
             imgSrc="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
@@ -106,10 +107,12 @@ export function App() {
           />
         </Grid>
         <Grid xs={12} sm={4}>
-          <AppCard
-            img="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-            title="Yosemite National Park App"
-            description="This is the app for Yosemite National Park. It is fun to visit and learn things."
+          <ChatBubble
+            id="foo"
+            content="hello"
+            sender={'You'}
+            timestamp={new Date().toString()}
+            variant="sent"
           />
         </Grid>
       </Grid>

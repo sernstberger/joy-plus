@@ -1,5 +1,5 @@
 import { Header } from 'components';
-import { AspectRatio, Button, Container, Grid } from '@mui/joy';
+import { AspectRatio, Button, Card, Container, Grid } from '@mui/joy';
 import { FavoriteBorder } from '@mui/icons-material';
 
 export function Car() {
@@ -21,8 +21,8 @@ export function Car() {
   return (
     <Container>
       <Header
-        title="Welcome to Joy+"
-        subtitle="This is the header component"
+        title="2021 Porsche 718 Spyder"
+        subtitle="$100,999"
         action={
           <Button
             variant="outlined"
@@ -57,7 +57,7 @@ export function Car() {
           </AspectRatio>
         </Grid>
         <Grid xs={12} sm={4}>
-          sidebar
+          <Card variant="solid">sidebar</Card>
         </Grid>
       </Grid>
     </Container>

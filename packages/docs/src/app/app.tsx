@@ -15,7 +15,7 @@ import {
   FileUploadInput,
   ChatBubble,
 } from 'components';
-import { Button, Card, Checkbox, Container, Grid } from '@mui/joy';
+import { Button, Card, Container, Grid } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { GitHub } from '@mui/icons-material';
 
@@ -110,7 +110,7 @@ export function App() {
           <ChatBubble
             id="foo"
             content="hello"
-            sender={'You'}
+            sender="You"
             timestamp={new Date().toString()}
             variant="sent"
           />

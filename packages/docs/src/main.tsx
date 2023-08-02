@@ -11,6 +11,7 @@ import {
 
 import App from './app/app';
 import { CssBaseline } from '@mui/joy';
+import Car from './app/car';
 
 const githubTheme = extendTheme({
   colorSchemes: {
@@ -56,7 +57,7 @@ const githubTheme = extendTheme({
 });
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 
 const materialTheme = materialExtendTheme();
@@ -66,8 +67,9 @@ root.render(
     <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
       <CssVarsProvider theme={githubTheme}>
         <CssBaseline />
-        <App />
+        {/* <App /> */}
+        <Car />
       </CssVarsProvider>
     </MaterialCssVarsProvider>
-  </StrictMode>
+  </StrictMode>,
 );

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Header } from 'components';
-import { Button, Container, Grid } from '@mui/joy';
+import { Button, Container, Grid, Stack } from '@mui/joy';
 import { FavoriteBorder } from '@mui/icons-material';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Box from '@mui/joy/Box';
@@ -64,8 +64,6 @@ export function Carousel() {
 
   return (
     <div>
-      <Button onClick={() => scroll(-200)}>Prev</Button>
-
       {/* <Box
         sx={{
           display: 'flex',
@@ -104,7 +102,10 @@ export function Carousel() {
           ))} */}
         </AspectRatio>
       </Box>
-      <Button onClick={() => scroll(200)}>Next</Button>
+      <Stack direction="row" justifyContent="space-between">
+        <Button onClick={() => scroll(-200)}>Prev</Button>
+        <Button onClick={() => scroll(200)}>Next</Button>
+      </Stack>
     </div>
   );
 }

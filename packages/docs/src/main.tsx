@@ -11,7 +11,7 @@ import {
 
 import App from './app/app';
 import { CssBaseline } from '@mui/joy';
-import Car from './app/car';
+import Car, { CarouselRatio } from './app/car';
 
 const githubTheme = extendTheme({
   colorSchemes: {
@@ -66,6 +66,7 @@ root.render(
         <CssBaseline />
         {/* <App /> */}
         <Car />
+        {/* <CarouselRatio /> */}
       </CssVarsProvider>
     </MaterialCssVarsProvider>
   </StrictMode>,

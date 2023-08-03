@@ -38,9 +38,6 @@ const githubTheme = extendTheme({
     h4: {
       fontSize: '1.25rem',
     },
-    h5: {
-      fontSize: '1.15rem',
-    },
   },
   components: {
     JoyButton: {

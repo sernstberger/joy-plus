@@ -21,12 +21,18 @@ export function Car() {
       />
 
       <Grid container spacing={2}>
-        <Grid xs={12} sm={8}>
-          <Carousel />
+        <Grid xs={12} sm={12}>
+          <Carousel
+            images={[
+              'https://images.unsplash.com/photo-1632245889029-e406faaa34cd?auto=format&fit=crop&w=800',
+              'https://images.unsplash.com/photo-1632245872256-49c78a46c400?auto=format&fit=crop&w=800',
+              'https://images.unsplash.com/photo-1632245866516-d9ca09099a2e?auto=format&fit=crop&w=800',
+            ]}
+          />
         </Grid>
-        <Grid xs={12} sm={4}>
+        {/* <Grid xs={12} sm={4}>
           <Card variant="solid">sidebar</Card>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Container>
   );

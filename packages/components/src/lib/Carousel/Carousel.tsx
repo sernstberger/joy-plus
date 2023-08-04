@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
+import Box from '@mui/joy/Box';
 import MobileStepper from '@mui/material/MobileStepper';
 import Sheet from '@mui/joy/Sheet';
 import Typography from '@mui/joy/Typography';
@@ -12,8 +11,7 @@ import { autoPlay } from 'react-swipeable-views-utils';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-export function Carousel({ images }: any) {
-  const theme = useTheme();
+export function Carousel({ images = [] }: any) {
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = images.length;
 
@@ -30,22 +28,13 @@ export function Carousel({ images }: any) {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
-      <Sheet
-        // square
-        // elevation={0}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          height: 50,
-          pl: 2,
-          bgcolor: 'background.default',
-        }}
-      >
-        <Typography>{images[activeStep].label}</Typography>
-      </Sheet>
+    <Box
+    // sx={{
+    //    maxWidth: 400,
+    //     flexGrow: 1
+    //   }}
+    >
       <AutoPlaySwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
@@ -56,9 +45,9 @@ export function Carousel({ images }: any) {
               <Box
                 component="img"
                 sx={{
-                  height: 255,
+                  // height: 255,
                   display: 'block',
-                  maxWidth: 400,
+                  // maxWidth: 400,
                   overflow: 'hidden',
                   width: '100%',
                 }}
@@ -69,6 +58,7 @@ export function Carousel({ images }: any) {
           </div>
         ))}
       </AutoPlaySwipeableViews>
+      {/* <Typography>{images[activeStep].label}</Typography> */}
       <MobileStepper
         steps={maxSteps}
         position="static"
@@ -78,22 +68,18 @@ export function Carousel({ images }: any) {
             size="sm"
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
+            endDecorator={<KeyboardArrowRight />}
           >
             Next
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
           </Button>
         }
         backButton={
-          <Button size="sm" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
+          <Button
+            size="sm"
+            onClick={handleBack}
+            disabled={activeStep === 0}
+            startDecorator={<KeyboardArrowLeft />}
+          >
             Back
           </Button>
         }

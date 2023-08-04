@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/joy/Box';
 import MobileStepper from '@mui/material/MobileStepper';
-import Sheet from '@mui/joy/Sheet';
-import Typography from '@mui/joy/Typography';
 import Button from '@mui/joy/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';

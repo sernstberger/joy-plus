@@ -37,9 +37,6 @@ const githubTheme = extendTheme({
     h4: {
       fontSize: '1.25rem',
     },
-    h5: {
-      fontSize: '1.15rem',
-    },
   },
   components: {
     JoyButton: {
@@ -56,7 +53,7 @@ const githubTheme = extendTheme({
 });
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 
 const materialTheme = materialExtendTheme();
@@ -69,5 +66,5 @@ root.render(
         <App />
       </CssVarsProvider>
     </MaterialCssVarsProvider>
-  </StrictMode>
+  </StrictMode>,
 );

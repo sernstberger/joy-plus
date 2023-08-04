@@ -1,4 +1,5 @@
 export * from './AppCard/AppCard';
+export * from './Carousel/Carousel';
 export * from './ChartCard/ChartCard';
 export * from './CheckboxInput/CheckboxInput';
 export * from './ConnectInput/ConnectInput';

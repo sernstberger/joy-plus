@@ -19,6 +19,8 @@
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.45.1",
     "react-number-format": "^5.2.2",
+    "react-swipeable-views": "^0.14.0",
+    "react-swipeable-views-utils": "^0.14.0",
     "tslib": "^2.3.0",
     "yup": "^1.2.0",
     "yup-password": "^0.2.2"
@@ -43,6 +45,8 @@
     "@types/node": "18.17.1",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
+    "@types/react-swipeable-views": "^0.13.2",
+    "@types/react-swipeable-views-utils": "^0.13.4",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "babel-jest": "^29.4.1",

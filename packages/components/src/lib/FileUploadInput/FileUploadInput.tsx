@@ -33,7 +33,7 @@ export function FileUploadInput() {
         <Stack alignItems="center" justifyContent="center">
           <CloudUploadOutlinedIcon />
           <Typography>Drag and drop files, or click to select files</Typography>
-          {/* <Typography level="body2">Other things</Typography> */}
+          {/* <Typography level="body-sm">Other things</Typography> */}
         </Stack>
       </Sheet>
       {files && files.length > 0 && (
@@ -43,7 +43,7 @@ export function FileUploadInput() {
               <ListItem key={index}>
                 <div>
                   <Typography>{file.name}</Typography>
-                  <Typography level="body2">{file.size} bytes</Typography>
+                  <Typography level="body-sm">{file.size} bytes</Typography>
                 </div>
               </ListItem>
               {files.length > 0 && index < files.length - 1 && <ListDivider />}

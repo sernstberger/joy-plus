@@ -33,7 +33,7 @@ export function Post({ imgSrc, imgSrcSet, imgAlt, title, content }: PostProps) {
               padding: 2,
             }}
           >
-            <Typography textColor="#fff" level="body2">
+            <Typography textColor="#fff" level="body-sm">
               {imgAlt}
             </Typography>
           </Box>

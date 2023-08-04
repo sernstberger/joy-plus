@@ -91,8 +91,8 @@ export function PlayerControls({ mediaLength }: PlayerControlsProps) {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Typography level="body3">{formatTime(currentTime)}</Typography>
-        <Typography level="body3">{formatTime(mediaLength)}</Typography>
+        <Typography level="body-xs">{formatTime(currentTime)}</Typography>
+        <Typography level="body-xs">{formatTime(mediaLength)}</Typography>
       </Stack>
     </Card>
   );

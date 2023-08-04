@@ -34,8 +34,8 @@ export function AppCard({
         />
 
         <div>
-          <Typography level="body1">{title}</Typography>
-          <Typography level="body2">{description}</Typography>
+          <Typography level="body-md">{title}</Typography>
+          <Typography level="body-sm">{description}</Typography>
         </div>
       </Stack>
       <Divider inset="context" />

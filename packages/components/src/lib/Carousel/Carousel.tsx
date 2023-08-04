@@ -8,6 +8,7 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import { AspectRatio } from '@mui/joy';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -28,36 +29,38 @@ export function Carousel({ images = [] }: any) {
   };
 
   return (
-    <Box
-    // sx={{
-    //    maxWidth: 400,
-    //     flexGrow: 1
-    //   }}
-    >
-      <AutoPlaySwipeableViews
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
+    <Box>
+      <AspectRatio
+        minHeight={120}
+        // maxHeight={600}
+        maxHeight={'100%'}
+        // objectFit="contain"
       >
-        {images.map((step: any, index: number) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  // height: 255,
-                  display: 'block',
-                  // maxWidth: 400,
-                  overflow: 'hidden',
-                  width: '100%',
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
-            ) : null}
-          </div>
-        ))}
-      </AutoPlaySwipeableViews>
+        <AutoPlaySwipeableViews
+          index={activeStep}
+          onChangeIndex={handleStepChange}
+          enableMouseEvents
+        >
+          {images.map((step: any, index: number) => (
+            <div key={step.label}>
+              {Math.abs(activeStep - index) <= 2 ? (
+                <Box
+                  component="img"
+                  sx={{
+                    // height: 500,
+                    display: 'block',
+                    // maxWidth: 400,
+                    overflow: 'hidden',
+                    width: '100%',
+                  }}
+                  src={step.imgPath}
+                  alt={step.label}
+                />
+              ) : null}
+            </div>
+          ))}
+        </AutoPlaySwipeableViews>
+      </AspectRatio>
       {/* <Typography>{images[activeStep].label}</Typography> */}
       <MobileStepper
         steps={maxSteps}

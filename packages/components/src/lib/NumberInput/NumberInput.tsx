@@ -1,5 +1,5 @@
-import React from 'react';
-import { NumericFormat } from 'react-number-format';
+import React, { useState } from 'react';
+import NumericFormat from 'react-number-format';
 import { ConnectInput } from '../ConnectInput';
 import { Input, InputProps } from '@mui/joy';
 
@@ -7,7 +7,7 @@ export interface NumberInputProps extends InputProps {
   fieldName: string;
   label: string;
   helperText?: string;
-  defaultValue?: string;
+  defaultValue?: number; // Updated to number type
 }
 
 const CustomInput = React.forwardRef((props: any, ref) => (
@@ -17,7 +17,6 @@ const CustomInput = React.forwardRef((props: any, ref) => (
     slotProps={{
       input: {
         inputMode: 'numeric',
-        // inputMode: 'decimal',
       },
     }}
   />
@@ -30,14 +29,21 @@ export function NumberInput({
   required = false,
   defaultValue,
 }: NumberInputProps) {
+  const [val, setVal] = useState<number | null>(defaultValue || null);
+
   return (
     <ConnectInput {...{ fieldName, label, required, helperText, defaultValue }}>
       {({ formState, field }: any) => (
         <NumericFormat
-          allowLeadingZeros={false}
+          value={val}
           thousandSeparator=","
           customInput={CustomInput}
-          value={field.value}
+          onValueChange={(values: any) => {
+            const numberValue = values.floatValue;
+            setVal(numberValue);
+            field.onChange(numberValue);
+          }}
+          allowLeadingZeros={false}
         />
       )}
     </ConnectInput>

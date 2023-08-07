@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ChartCard,
   Form,
@@ -14,10 +15,46 @@ import {
   CheckboxInput,
   FileUploadInput,
 } from 'components';
-import { Button, Card, Checkbox, Container, Grid } from '@mui/joy';
+import { Button, Card, Checkbox, Container, Grid, Typography } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { GitHub } from '@mui/icons-material';
 import Car from './car';
+import { useWatch } from 'react-hook-form';
+
+// Use the formula
+// A=P*(r(1+r)^{n})/((1+r)^{n}-1).
+
+// Calculate the interest rate per month. The annual interest rate is 7 percent. Divide this by 12 to get the monthly interest rate. The monthly interest rate is 0.583 percent
+// (7/12=.5833)
+
+// A=15,090*(.00583(1+.00583)^{{48}})/(1+.00583)^{{48}}-1
+
+function MonthlyPayment() {
+  // const principal = useWatch({
+  //   name: 'principal', // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
+  //   defaultValue: 'default', // default value before the render
+  // });
+
+  const values = useWatch();
+  // console.log(values);
+
+  const { principal, term, rate } = values;
+  console.log(
+    principal,
+    typeof principal,
+    term,
+    typeof term,
+    rate,
+    typeof term,
+    principal / term,
+  );
+
+  const foo =
+    ((principal * ((0.00583 * (1 + 0.00583)) ^ term)) / (1 + 0.00583)) ^
+    (term - 1);
+
+  return <Typography>monthly payment: {foo}</Typography>;
+}
 
 export function App() {
   return (
@@ -71,7 +108,7 @@ export function App() {
             />
           </ChartCard>
         </Grid>
-        <Grid xs={12} sm={4}>
+        {/* <Grid xs={12} sm={4}>
           <Form>
             <TextInput fieldName="textInput" label="Text" required />
             <NumberInput fieldName="numberInput" label="Number" required />
@@ -79,8 +116,8 @@ export function App() {
             <CheckboxInput fieldName="remember" label="Remember me" />
             <FileUploadInput />
           </Form>
-        </Grid>
-        <Grid xs={12} sm={4}>
+        </Grid> */}
+        {/* <Grid xs={12} sm={4}>
           <Card variant="outlined">
             <Form>
               <EmailInput fieldName="emailInput" label="Email" required />
@@ -97,7 +134,7 @@ export function App() {
               />
             </Form>
           </Card>
-        </Grid>
+        </Grid> */}
 
         <Grid xs={12} sm={4}>
           <Post
@@ -111,6 +148,22 @@ export function App() {
 
         <Grid xs={12} sm={8}>
           <Car />
+        </Grid>
+
+        <Grid xs={12} sm={4}>
+          <Card variant="outlined">
+            <Form>
+              <NumberInput fieldName="term" label="Term" required />
+              <NumberInput
+                fieldName="interestRate"
+                label="Interest rate"
+                required
+              />
+              <NumberInput fieldName="principal" label="Principal" required />
+
+              <MonthlyPayment />
+            </Form>
+          </Card>
         </Grid>
       </Grid>
     </Container>

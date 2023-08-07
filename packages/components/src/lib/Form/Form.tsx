@@ -12,7 +12,7 @@ export function Form({ children }: FormProps) {
       // hello: "hi"
     },
   });
-  const onSubmit = (data: any) => alert(JSON.stringify(data));
+  const onSubmit = (data: any) => console.log('***', JSON.stringify(data));
 
   return (
     <FormProvider {...methods}>

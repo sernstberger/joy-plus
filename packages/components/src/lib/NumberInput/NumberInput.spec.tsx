@@ -22,7 +22,7 @@ describe('NumberInput', () => {
         <NumberInput
           fieldName="testField"
           label="Test Label"
-          // onChange={onChange}
+
           // defaultValue={123}
         />
       </Form>,

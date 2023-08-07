@@ -52,11 +52,11 @@ export function ConnectInput({
     defaultValue,
   });
 
-  console.log('methods', fieldName, methods);
+  console.log('methods', fieldName, methods.field.onChange);
 
   return (
     <FormControl
-      {...methods.field}
+      {...methods}
       // orientation="horizontal"
       required={required}
       error={!!methods.fieldState.error?.message}

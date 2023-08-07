@@ -30,7 +30,7 @@ export function NumberInput({
   required = false,
   defaultValue,
 }: NumberInputProps) {
-  const [val, setVal] = useState(null);
+  const [val, setVal] = useState<number | null>(null);
 
   return (
     <ConnectInput {...{ fieldName, label, required, helperText, defaultValue }}>
@@ -41,9 +41,10 @@ export function NumberInput({
           thousandSeparator=","
           customInput={CustomInput}
           onValueChange={(values: any) => {
-            setVal(values.floatValue);
-            field.onChange(values.floatValue);
-            console.log('!!!', values.floatValue, typeof values.floatValue);
+            const foo = values.floatValue;
+            setVal(foo);
+            field.onChange(foo);
+            console.log('!!!^^^', field.name, foo, typeof foo, val);
           }}
           allowLeadingZeros={false}
         />

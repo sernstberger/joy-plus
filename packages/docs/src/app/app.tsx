@@ -30,30 +30,15 @@ import { useWatch } from 'react-hook-form';
 // A=15,090*(.00583(1+.00583)^{{48}})/(1+.00583)^{{48}}-1
 
 function MonthlyPayment() {
-  // const principal = useWatch({
-  //   name: 'principal', // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
-  //   defaultValue: 'default', // default value before the render
-  // });
-
   const values = useWatch();
-  // console.log(values);
+  const { principal: p, term: t, rate: r } = values;
+  const interestRatePerMonth = r / 12 / 100;
 
-  const { principal, term, rate } = values;
-  console.log(
-    principal,
-    typeof principal,
-    term,
-    typeof term,
-    rate,
-    typeof term,
-    principal / term,
-  );
+  // calculate monthly payment
+  const it = Math.pow(1 + interestRatePerMonth, t);
+  const monthlyPayment = (p * interestRatePerMonth * it) / (it - 1);
 
-  const foo =
-    ((principal * ((0.00583 * (1 + 0.00583)) ^ term)) / (1 + 0.00583)) ^
-    (term - 1);
-
-  return <Typography>monthly payment: {foo}</Typography>;
+  return <Typography>monthly payment: {monthlyPayment}</Typography>;
 }
 
 export function App() {
@@ -154,11 +139,7 @@ export function App() {
           <Card variant="outlined">
             <Form>
               <NumberInput fieldName="term" label="Term" required />
-              <NumberInput
-                fieldName="interestRate"
-                label="Interest rate"
-                required
-              />
+              <NumberInput fieldName="rate" label="Interest rate" required />
               <NumberInput fieldName="principal" label="Principal" required />
 
               <MonthlyPayment />

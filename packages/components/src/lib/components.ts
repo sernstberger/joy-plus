@@ -7,6 +7,7 @@ export * from './EmailInput/EmailInput';
 export * from './FileUploadInput/FileUploadInput';
 export * from './Form/Form';
 export * from './Header/Header';
+export * from './Nav/Nav';
 export * from './NumberInput/NumberInput';
 export * from './PasswordInput/PasswordInput';
 export * from './PhoneInput/PhoneInput';

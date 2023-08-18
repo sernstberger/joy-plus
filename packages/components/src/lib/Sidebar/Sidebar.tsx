@@ -5,8 +5,6 @@ import Box from '@mui/joy/Box';
 import Card from '@mui/joy/Card';
 import Divider from '@mui/joy/Divider';
 import IconButton from '@mui/joy/IconButton';
-import Link from '@mui/joy/Link';
-import LinearProgress from '@mui/joy/LinearProgress';
 import List from '@mui/joy/List';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
@@ -189,28 +187,6 @@ export function Sidebar() {
             </ListItemButton>
           </ListItem>
         </List>
-        <Card
-          variant="soft"
-          color="primary"
-          invertedColors
-          sx={{ boxShadow: 'none' }}
-        >
-          <Typography fontSize="sm" fontWeight="lg" mb={0.5}>
-            Used space
-          </Typography>
-          <Typography level="body-xs">
-            Your team has used 80% of your available space. Need more?
-          </Typography>
-          <LinearProgress value={80} determinate sx={{ my: 1.5 }} />
-          <Box sx={{ display: 'flex', gap: 2 }}>
-            <Link fontSize="sm" component="button" fontWeight="lg">
-              Upgrade plan
-            </Link>
-            <Link fontSize="sm" component="button">
-              Dismiss
-            </Link>
-          </Box>
-        </Card>
       </Box>
       <Divider />
       <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>

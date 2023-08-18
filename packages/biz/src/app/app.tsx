@@ -1,25 +1,10 @@
-// // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-// import styles from './app.module.css';
-
-// export function App() {
-//   return (
-//     <div>
-//       <Sidebar />
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import * as React from 'react';
 import { CssVarsProvider } from '@mui/joy/styles';
 import GlobalStyles from '@mui/joy/GlobalStyles';
 import CssBaseline from '@mui/joy/CssBaseline';
 import Box from '@mui/joy/Box';
 // import useScript from './useScript';
-import { Sidebar } from 'components';
-// import Header from './components/Header';
+import { Sidebar, Nav } from 'components';
 // import MyMessages from './components/MyMessages';
 
 export default function JoyMessagesTemplate() {
@@ -38,7 +23,7 @@ export default function JoyMessagesTemplate() {
       />
       <CssBaseline />
       <Box sx={{ display: 'flex', minHeight: '100dvh' }}>
-        {/* <Header /> */}
+        <Nav />
         <Sidebar />
         <Box component="main" className="MainContent" flex={1}>
           {/* <MyMessages /> */}

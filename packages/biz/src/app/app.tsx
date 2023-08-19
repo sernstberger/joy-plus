@@ -2,8 +2,16 @@ import * as React from 'react';
 import { CssVarsProvider } from '@mui/joy/styles';
 import CssBaseline from '@mui/joy/CssBaseline';
 import Box from '@mui/joy/Box';
-import { Sidebar, Nav, Header, Form, TextInput } from 'components';
-import { Button, Card, Container, Divider, Grid, Typography } from '@mui/joy';
+import { Sidebar, Nav, Header, Form, TextInput, PhoneInput } from 'components';
+import {
+  Button,
+  Card,
+  Container,
+  Divider,
+  Grid,
+  Stack,
+  Typography,
+} from '@mui/joy';
 // import MyMessages from './components/MyMessages';
 
 export default function JoyMessagesTemplate() {
@@ -66,10 +74,26 @@ export default function JoyMessagesTemplate() {
                 <TextInput fieldName="fein" label="FEIN" />
                 <Divider />
                 <Typography>Owner info</Typography>
-                <TextInput fieldName="firstName" label="First name" />
-                <TextInput fieldName="lastName" label="Last name" />
+                {/* <Grid container spacing={2}>
+                  <Grid xs={6}>
+                    <TextInput fieldName="firstName" label="First name" />
+                  </Grid>
+                  <Grid xs={6}>
+                    <TextInput fieldName="lastName" label="Last name" />
+                  </Grid>
+                </Grid> */}
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  // justifyContent="space-between"
+                >
+                  <TextInput fieldName="firstName" label="First name" />
+
+                  <TextInput fieldName="lastName" label="Last name" />
+                </Stack>
                 <TextInput fieldName="ssn" label="Social security number" />
                 <TextInput fieldName="birthday" label="Birthday" />
+                <PhoneInput fieldName="phone" label="Phone number" />
               </Form>
             </Grid>
           </Container>

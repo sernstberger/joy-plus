@@ -15,5 +15,6 @@ export * from './PhoneInput/PhoneInput';
 export * from './PlayerControls/PlayerControls';
 export * from './Post/Post';
 export * from './Sidebar/Sidebar';
+export * from './SsnInput/SsnInput';
 export * from './Stat/Stat';
 export * from './TextInput/TextInput';

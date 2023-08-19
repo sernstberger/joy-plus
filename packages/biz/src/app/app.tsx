@@ -10,6 +10,7 @@ import {
   Form,
   TextInput,
   PhoneInput,
+  SsnInput,
 } from 'components';
 import {
   Button,
@@ -80,7 +81,6 @@ export default function JoyMessagesTemplate() {
                 <TextInput fieldName="industry" label="Industry" />
                 {/* address should be a google autocomplete */}
                 <TextInput fieldName="mailingAddress" label="Mailing address" />
-                {/* fein should be a fein field */}
                 <FeinInput fieldName="fein" label="FEIN" />
                 <Divider />
                 <Typography>Owner info</Typography>
@@ -98,10 +98,9 @@ export default function JoyMessagesTemplate() {
                   // justifyContent="space-between"
                 >
                   <TextInput fieldName="firstName" label="First name" />
-
                   <TextInput fieldName="lastName" label="Last name" />
                 </Stack>
-                <TextInput fieldName="ssn" label="Social security number" />
+                <SsnInput fieldName="ssn" label="Social security number" />
                 <TextInput fieldName="birthday" label="Birthday" />
                 <PhoneInput fieldName="phone" label="Phone number" />
               </Form>

@@ -12,6 +12,7 @@ import ListItemContent from '@mui/joy/ListItemContent';
 import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
+import { ExpandMore } from '@mui/icons-material';
 // import MuiLogo from './MuiLogo';
 // import ColorSchemeToggle from './ColorSchemeToggle';
 // import { closeSidebar } from '../utils';
@@ -94,49 +95,27 @@ export function Sidebar() {
             '--List-nestedInsetStart': '40px',
           }}
         >
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <i data-feather="home" />
-              </ListItemDecorator>
-              <ListItemContent>Home</ListItemContent>
-              <i data-feather="chevron-down" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <i data-feather="bar-chart-2" />
-              </ListItemDecorator>
-              <ListItemContent>Dashboard</ListItemContent>
-              <i data-feather="chevron-down" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <i data-feather="layers" />
-              </ListItemDecorator>
-              <ListItemContent>Projects</ListItemContent>
-              <i data-feather="chevron-down" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <i data-feather="check-square" />
-              </ListItemDecorator>
-              <ListItemContent>Tasks</ListItemContent>
-              <i data-feather="chevron-down" />
-            </ListItemButton>
-          </ListItem>
+          {[1, 2, 3, 4].map((foo) => {
+            return (
+              <ListItem>
+                <ListItemButton>
+                  <ListItemDecorator>
+                    <i data-feather="home" />
+                  </ListItemDecorator>
+                  <ListItemContent>Home</ListItemContent>
+                  <ExpandMore />
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
+
           <ListItem>
             <ListItemButton>
               <ListItemDecorator>
                 <i data-feather="flag" />
               </ListItemDecorator>
               <ListItemContent>Reporting</ListItemContent>
-              <i data-feather="chevron-down" />
+              <ExpandMore />
             </ListItemButton>
           </ListItem>
           <ListItem nested>

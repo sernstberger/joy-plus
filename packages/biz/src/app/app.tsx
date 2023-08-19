@@ -1,33 +1,53 @@
 import * as React from 'react';
 import { CssVarsProvider } from '@mui/joy/styles';
-import GlobalStyles from '@mui/joy/GlobalStyles';
 import CssBaseline from '@mui/joy/CssBaseline';
 import Box from '@mui/joy/Box';
-// import useScript from './useScript';
-import { Sidebar, Nav } from 'components';
+import { Sidebar, Nav, Header } from 'components';
+import { Button, Card, Container, Grid } from '@mui/joy';
 // import MyMessages from './components/MyMessages';
 
 export default function JoyMessagesTemplate() {
   return (
     <CssVarsProvider disableTransitionOnChange>
-      <GlobalStyles
-        styles={(theme) => ({
-          '[data-feather], .feather': {
-            color: `var(--Icon-color, ${theme.vars.palette.text.icon})`,
-            margin: 'var(--Icon-margin)',
-            fontSize: `var(--Icon-fontSize, ${theme.vars.fontSize.xl})`,
-            width: '1em',
-            height: '1em',
-          },
-        })}
-      />
       <CssBaseline />
       <Box sx={{ display: 'flex', minHeight: '100dvh' }}>
         <Nav />
         <Sidebar />
         <Box component="main" className="MainContent" flex={1}>
           {/* <MyMessages /> */}
-          yoooooooooo
+          <Container>
+            <Header
+              title="something goes here"
+              subtitle="foooobar"
+              action={<Button>hi</Button>}
+            />
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="stretch"
+              spacing={2}
+            >
+              <Grid xs={4}>
+                <Card>
+                  ald asdflkja dflajdlf jasldjf lasjflajfla jflkasjkldfj alsdjf
+                  lksajf klasjfaljfkla djflasjd fklsajf lsajfkfj
+                </Card>
+              </Grid>
+              <Grid xs={4}>
+                <Card>aldkfj</Card>
+              </Grid>
+              <Grid xs={4}>
+                <Card>aldkfj</Card>
+              </Grid>
+              <Grid xs={4}>
+                <Card>aldkfj</Card>
+              </Grid>
+              <Grid xs={4}>
+                <Card>aldkfj</Card>
+              </Grid>
+            </Grid>
+          </Container>
         </Box>
       </Box>
     </CssVarsProvider>

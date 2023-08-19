@@ -2,6 +2,7 @@ import * as React from 'react';
 import GlobalStyles from '@mui/joy/GlobalStyles';
 import IconButton from '@mui/joy/IconButton';
 import Sheet from '@mui/joy/Sheet';
+import MenuIcon from '@mui/icons-material/Menu';
 // import MuiLogo from './MuiLogo';
 // import ColorSchemeToggle from './ColorSchemeToggle';
 // import { toggleSidebar } from '../utils';
@@ -10,7 +11,7 @@ export function Nav() {
   return (
     <Sheet
       sx={{
-        display: { xs: 'flex', lg: 'none' },
+        // display: { xs: 'flex', lg: 'none' },
         alignItems: 'center',
         position: 'fixed',
         top: 0,
@@ -23,7 +24,7 @@ export function Nav() {
         boxShadow: 'sm',
       }}
     >
-      <GlobalStyles
+      {/* <GlobalStyles
         styles={(theme) => ({
           ':root': {
             '--Header-height': '52px',
@@ -32,14 +33,14 @@ export function Nav() {
             },
           },
         })}
-      />
+      /> */}
       <IconButton
         // onClick={() => toggleSidebar()}
         variant="outlined"
         color="neutral"
         size="sm"
       >
-        <i data-feather="menu" />
+        <MenuIcon />
       </IconButton>
       {/* <MuiLogo variant="plain" sx={{ boxShadow: 'none', mr: 'auto' }} /> */}
       {/* <ColorSchemeToggle id={undefined} /> */}

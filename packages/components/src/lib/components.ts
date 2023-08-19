@@ -3,6 +3,7 @@ export * from './Carousel/Carousel';
 export * from './ChartCard/ChartCard';
 export * from './CheckboxInput/CheckboxInput';
 export * from './ConnectInput/ConnectInput';
+export * from './DateInput/DateInput';
 export * from './EmailInput/EmailInput';
 export * from './FileUploadInput/FileUploadInput';
 export * from './FeinInput/FeinInput';

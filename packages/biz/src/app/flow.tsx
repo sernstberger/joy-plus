@@ -1,4 +1,11 @@
-import { FeinInput, Form, TextInput, PhoneInput, SsnInput } from 'components';
+import {
+  FeinInput,
+  Form,
+  TextInput,
+  PhoneInput,
+  DateInput,
+  SsnInput,
+} from 'components';
 import { Container, Divider, Grid, Stack, Typography } from '@mui/joy';
 
 export default function Flow() {
@@ -12,7 +19,7 @@ export default function Flow() {
         <div>User select menu</div>
         <Form>
           <TextInput fieldName="businessName" label="Business name" required />
-          <TextInput fieldName="effectiveDate" label="Effective date" />
+          <DateInput fieldName="effectiveDate" label="Effective date" />
           {/* industry should be select */}
           <TextInput fieldName="industry" label="Industry" />
           {/* address should be a google autocomplete */}
@@ -39,7 +46,16 @@ export default function Flow() {
             <TextInput fieldName="lastName" label="Last name" />
           </Stack>
           <SsnInput fieldName="ssn" label="Social security number" />
-          <TextInput fieldName="birthday" label="Birthday" />
+          <DateInput
+            fieldName="birthday"
+            label="Birthday"
+            // slotProps={{
+            //   input: {
+            //     min: '2018-06-07T00:00',
+            //     max: '2018-06-14T00:00',
+            //   },
+            // }}
+          />
           <PhoneInput fieldName="phone" label="Phone number" />
           <TextInput
             fieldName="ownershipPercentage"

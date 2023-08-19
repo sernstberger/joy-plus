@@ -2,7 +2,15 @@ import * as React from 'react';
 import { CssVarsProvider } from '@mui/joy/styles';
 import CssBaseline from '@mui/joy/CssBaseline';
 import Box from '@mui/joy/Box';
-import { Sidebar, Nav, Header, Form, TextInput, PhoneInput } from 'components';
+import {
+  FeinInput,
+  Sidebar,
+  Nav,
+  Header,
+  Form,
+  TextInput,
+  PhoneInput,
+} from 'components';
 import {
   Button,
   Card,
@@ -59,6 +67,8 @@ export default function JoyMessagesTemplate() {
               <Divider />
             </Grid>
             <Grid xs={12}>
+              <div>Account selector</div>
+              <div>User select menu</div>
               <Form>
                 <TextInput
                   fieldName="businessName"
@@ -71,7 +81,7 @@ export default function JoyMessagesTemplate() {
                 {/* address should be a google autocomplete */}
                 <TextInput fieldName="mailingAddress" label="Mailing address" />
                 {/* fein should be a fein field */}
-                <TextInput fieldName="fein" label="FEIN" />
+                <FeinInput fieldName="fein" label="FEIN" />
                 <Divider />
                 <Typography>Owner info</Typography>
                 {/* <Grid container spacing={2}>

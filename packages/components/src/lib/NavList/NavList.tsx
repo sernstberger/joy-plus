@@ -6,8 +6,9 @@ import ListItemContent from '@mui/joy/ListItemContent';
 import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import { ExpandLess, ExpandMore, Home } from '@mui/icons-material';
 
-interface NavListItemProps {
+export interface NavListItemProps {
   title: string;
+  children?: Omit<NavListItemProps[], 'children'>;
 }
 
 const foo: NavListItemProps[] = [
@@ -16,6 +17,17 @@ const foo: NavListItemProps[] = [
   },
   {
     title: 'Quote',
+    children: [
+      {
+        title: 'Foo',
+      },
+      {
+        title: 'Resources',
+      },
+      {
+        title: 'Reports',
+      },
+    ],
   },
   {
     title: 'Resources',
@@ -25,16 +37,28 @@ const foo: NavListItemProps[] = [
   },
 ];
 
-const NavListItem = ({ title }: NavListItemProps) => {
+const NavListItem = ({ children, title }: NavListItemProps) => {
+  const hasChildren = children && children.length > 0;
   return (
-    <ListItem>
-      <ListItemButton>
+    <ListItem nested={hasChildren}>
+      <ListItemButton
+        selected
+        // color="primary"
+      >
         <ListItemDecorator>
           <Home />
         </ListItemDecorator>
         <ListItemContent>{title}</ListItemContent>
-        <ExpandMore />
+        {hasChildren && <ExpandMore />}
       </ListItemButton>
+
+      {hasChildren && (
+        <List>
+          {children.map((child: NavListItemProps) => {
+            return <NavListItem {...child} />;
+          })}
+        </List>
+      )}
     </ListItem>
   );
 };
@@ -52,30 +76,6 @@ export function NavList(props: ListProps) {
       {foo.map((bar: NavListItemProps) => {
         return <NavListItem {...bar} />;
       })}
-
-      <ListItem nested>
-        <ListItemButton>
-          <ListItemDecorator>
-            <Home />
-          </ListItemDecorator>
-          <ListItemContent>Messages</ListItemContent>
-          {/* <i data-feather="chevron-up" /> */}
-          <ExpandLess />
-        </ListItemButton>
-        <List>
-          <ListItem>
-            <ListItemButton selected color="primary">
-              View all
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>Your team</ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>Archived</ListItemButton>
-          </ListItem>
-        </List>
-      </ListItem>
     </List>
   );
 }

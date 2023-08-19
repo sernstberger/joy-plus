@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import * as React from 'react';
 import GlobalStyles from '@mui/joy/GlobalStyles';
 import Box from '@mui/joy/Box';
-import Card from '@mui/joy/Card';
 import Divider from '@mui/joy/Divider';
 import IconButton from '@mui/joy/IconButton';
 import List from '@mui/joy/List';
@@ -12,7 +9,7 @@ import ListItemContent from '@mui/joy/ListItemContent';
 import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
-import { ExpandMore } from '@mui/icons-material';
+import { NavList } from '../components';
 // import MuiLogo from './MuiLogo';
 // import ColorSchemeToggle from './ColorSchemeToggle';
 // import { closeSidebar } from '../utils';
@@ -88,59 +85,8 @@ export function Sidebar() {
           flexDirection: 'column',
         }}
       >
-        <List
-          sx={{
-            '--ListItem-radius': '8px',
-            '--List-gap': '4px',
-            '--List-nestedInsetStart': '40px',
-          }}
-        >
-          {[1, 2, 3, 4].map((foo) => {
-            return (
-              <ListItem>
-                <ListItemButton>
-                  <ListItemDecorator>
-                    <i data-feather="home" />
-                  </ListItemDecorator>
-                  <ListItemContent>Home</ListItemContent>
-                  <ExpandMore />
-                </ListItemButton>
-              </ListItem>
-            );
-          })}
+        <NavList />
 
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <i data-feather="flag" />
-              </ListItemDecorator>
-              <ListItemContent>Reporting</ListItemContent>
-              <ExpandMore />
-            </ListItemButton>
-          </ListItem>
-          <ListItem nested>
-            <ListItemButton>
-              <ListItemDecorator>
-                <i data-feather="message-square" />
-              </ListItemDecorator>
-              <ListItemContent>Messages</ListItemContent>
-              <i data-feather="chevron-up" />
-            </ListItemButton>
-            <List>
-              <ListItem>
-                <ListItemButton selected color="primary">
-                  View all
-                </ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>Your team</ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>Archived</ListItemButton>
-              </ListItem>
-            </List>
-          </ListItem>
-        </List>
         <List
           sx={{
             mt: 'auto',

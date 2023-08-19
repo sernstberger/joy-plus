@@ -83,6 +83,8 @@ export default function JoyMessagesTemplate() {
                 <TextInput fieldName="mailingAddress" label="Mailing address" />
                 <FeinInput fieldName="fein" label="FEIN" />
                 <Divider />
+
+                {/* need to be able to add multiple owners (use useFieldArray) */}
                 <Typography>Owner info</Typography>
                 {/* <Grid container spacing={2}>
                   <Grid xs={6}>
@@ -103,6 +105,11 @@ export default function JoyMessagesTemplate() {
                 <SsnInput fieldName="ssn" label="Social security number" />
                 <TextInput fieldName="birthday" label="Birthday" />
                 <PhoneInput fieldName="phone" label="Phone number" />
+                <TextInput
+                  fieldName="ownershipPercentage"
+                  label="Ownership percentage"
+                  helperText="Some helper text goes here."
+                />
               </Form>
             </Grid>
           </Container>

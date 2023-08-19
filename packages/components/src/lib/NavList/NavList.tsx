@@ -1,10 +1,10 @@
 import React from 'react';
-import List from '@mui/joy/List';
+import List, { ListProps } from '@mui/joy/List';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import ListItemContent from '@mui/joy/ListItemContent';
 import ListItemDecorator from '@mui/joy/ListItemDecorator';
-import { ExpandMore } from '@mui/icons-material';
+import { ExpandLess, ExpandMore, Home } from '@mui/icons-material';
 
 interface NavListItemProps {
   title: string;
@@ -14,6 +14,15 @@ const foo: NavListItemProps[] = [
   {
     title: 'Home',
   },
+  {
+    title: 'Quote',
+  },
+  {
+    title: 'Resources',
+  },
+  {
+    title: 'Reports',
+  },
 ];
 
 const NavListItem = ({ title }: NavListItemProps) => {
@@ -21,7 +30,7 @@ const NavListItem = ({ title }: NavListItemProps) => {
     <ListItem>
       <ListItemButton>
         <ListItemDecorator>
-          <i data-feather="home" />
+          <Home />
         </ListItemDecorator>
         <ListItemContent>{title}</ListItemContent>
         <ExpandMore />
@@ -30,9 +39,10 @@ const NavListItem = ({ title }: NavListItemProps) => {
   );
 };
 
-export function NavList() {
+export function NavList(props: ListProps) {
   return (
     <List
+      {...props}
       sx={{
         '--ListItem-radius': '8px',
         '--List-gap': '4px',
@@ -43,22 +53,14 @@ export function NavList() {
         return <NavListItem {...bar} />;
       })}
 
-      <ListItem>
-        <ListItemButton>
-          <ListItemDecorator>
-            <i data-feather="flag" />
-          </ListItemDecorator>
-          <ListItemContent>Reporting</ListItemContent>
-          <ExpandMore />
-        </ListItemButton>
-      </ListItem>
       <ListItem nested>
         <ListItemButton>
           <ListItemDecorator>
-            <i data-feather="message-square" />
+            <Home />
           </ListItemDecorator>
           <ListItemContent>Messages</ListItemContent>
-          <i data-feather="chevron-up" />
+          {/* <i data-feather="chevron-up" /> */}
+          <ExpandLess />
         </ListItemButton>
         <List>
           <ListItem>

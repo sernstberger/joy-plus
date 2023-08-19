@@ -5,16 +5,21 @@ import {
   PhoneInput,
   DateInput,
   SsnInput,
+  NavList,
 } from 'components';
 import { Container, Divider, Grid, Stack, Typography } from '@mui/joy';
 
 export default function Flow() {
   return (
     <Container>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
       <Grid xs={12}>
-        <Divider />
-      </Grid>
-      <Grid xs={12}>
+        <NavList orientation="horizontal" />
         <div>Account selector</div>
         <div>User select menu</div>
         <Form>
@@ -64,6 +69,12 @@ export default function Flow() {
           />
         </Form>
       </Grid>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </Container>
   );
 }

@@ -13,7 +13,7 @@ export default function App() {
         <Nav />
         <Sidebar />
         <Box component="main" className="MainContent" flex={1}>
-          <Home />
+          {/* <Home /> */}
           <Flow />
         </Box>
       </Box>

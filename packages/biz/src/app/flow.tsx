@@ -19,7 +19,34 @@ export default function Flow() {
       <br />
 
       <Grid xs={12}>
-        <NavList orientation="horizontal" />
+        <NavList
+          orientation="horizontal"
+          links={[
+            {
+              title: 'Home',
+            },
+            {
+              title: 'Quote',
+              children: [
+                {
+                  title: 'Foo',
+                },
+                {
+                  title: 'Resources',
+                },
+                {
+                  title: 'Reports',
+                },
+              ],
+            },
+            {
+              title: 'Resources',
+            },
+            {
+              title: 'Reports',
+            },
+          ]}
+        />
         <div>Account selector</div>
         <div>User select menu</div>
         <Form>

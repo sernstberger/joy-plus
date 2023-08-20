@@ -85,7 +85,33 @@ export function Sidebar() {
           flexDirection: 'column',
         }}
       >
-        <NavList />
+        <NavList
+          links={[
+            {
+              title: 'Home',
+            },
+            {
+              title: 'Quote',
+              children: [
+                {
+                  title: 'Foo',
+                },
+                {
+                  title: 'Resources',
+                },
+                {
+                  title: 'Reports',
+                },
+              ],
+            },
+            {
+              title: 'Resources',
+            },
+            {
+              title: 'Reports',
+            },
+          ]}
+        />
 
         <List
           sx={{

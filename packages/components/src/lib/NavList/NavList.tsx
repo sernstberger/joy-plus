@@ -11,39 +11,15 @@ export interface NavListItemProps {
   children?: Omit<NavListItemProps[], 'children'>;
 }
 
-const foo: NavListItemProps[] = [
-  {
-    title: 'Home',
-  },
-  {
-    title: 'Quote',
-    children: [
-      {
-        title: 'Foo',
-      },
-      {
-        title: 'Resources',
-      },
-      {
-        title: 'Reports',
-      },
-    ],
-  },
-  {
-    title: 'Resources',
-  },
-  {
-    title: 'Reports',
-  },
-];
-
 const NavListItem = ({ children, title }: NavListItemProps) => {
+  const [open, setOpen] = React.useState(false);
   const hasChildren = children && children.length > 0;
   return (
     <ListItem nested={hasChildren}>
       <ListItemButton
         selected
         // color="primary"
+        onClick={() => setOpen(!open)}
       >
         <ListItemDecorator>
           <Home />
@@ -52,7 +28,7 @@ const NavListItem = ({ children, title }: NavListItemProps) => {
         {hasChildren && <ExpandMore />}
       </ListItemButton>
 
-      {hasChildren && (
+      {hasChildren && open && (
         <List>
           {children.map((child: NavListItemProps) => {
             return <NavListItem {...child} />;
@@ -63,7 +39,11 @@ const NavListItem = ({ children, title }: NavListItemProps) => {
   );
 };
 
-export function NavList(props: ListProps) {
+interface NavListProps extends ListProps {
+  links: NavListItemProps[];
+}
+
+export function NavList(props: NavListProps) {
   return (
     <List
       {...props}
@@ -73,7 +53,7 @@ export function NavList(props: ListProps) {
         '--List-nestedInsetStart': '40px',
       }}
     >
-      {foo.map((bar: NavListItemProps) => {
+      {props.links.map((bar: NavListItemProps) => {
         return <NavListItem {...bar} />;
       })}
     </List>

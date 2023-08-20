@@ -1,43 +1,6 @@
 import React from 'react';
 import List, { ListProps } from '@mui/joy/List';
-import ListItem from '@mui/joy/ListItem';
-import ListItemButton from '@mui/joy/ListItemButton';
-import ListItemContent from '@mui/joy/ListItemContent';
-import ListItemDecorator from '@mui/joy/ListItemDecorator';
-import { ExpandLess, ExpandMore, Home } from '@mui/icons-material';
-
-export interface NavListItemProps {
-  title: string;
-  children?: Omit<NavListItemProps[], 'children'>;
-}
-
-const NavListItem = ({ children, title }: NavListItemProps) => {
-  const [open, setOpen] = React.useState(false);
-  const hasChildren = children && children.length > 0;
-  return (
-    <ListItem nested={hasChildren}>
-      <ListItemButton
-        selected
-        // color="primary"
-        onClick={() => setOpen(!open)}
-      >
-        <ListItemDecorator>
-          <Home />
-        </ListItemDecorator>
-        <ListItemContent>{title}</ListItemContent>
-        {hasChildren && <ExpandMore />}
-      </ListItemButton>
-
-      {hasChildren && open && (
-        <List>
-          {children.map((child: NavListItemProps) => {
-            return <NavListItem {...child} />;
-          })}
-        </List>
-      )}
-    </ListItem>
-  );
-};
+import NavListItem, { NavListItemProps } from './NavListItem';
 
 interface NavListProps extends ListProps {
   links: NavListItemProps[];

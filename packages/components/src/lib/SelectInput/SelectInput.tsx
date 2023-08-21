@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConnectInput } from '../ConnectInput';
-import { Input, InputProps, Option, Select } from '@mui/joy';
+import { InputProps, Option, Select } from '@mui/joy';
 
 export interface SelectInputProps extends InputProps {
   fieldName: string;
@@ -24,9 +24,11 @@ export function SelectInput({
       {...rest}
     >
       {({ formState, field }: any) => {
-        const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-          console.log('!!!!', event.target.value);
-          field.onChange(event.target.value);
+        const handleChange = (
+          event: React.ChangeEvent<HTMLInputElement>,
+          newValue: any,
+        ) => {
+          field.onChange(newValue);
         };
         return (
           <Select {...field} onChange={handleChange} disabled={disabled}>

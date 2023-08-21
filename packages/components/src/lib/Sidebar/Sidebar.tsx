@@ -1,7 +1,6 @@
 import GlobalStyles from '@mui/joy/GlobalStyles';
 import Box from '@mui/joy/Box';
 import Divider from '@mui/joy/Divider';
-import IconButton from '@mui/joy/IconButton';
 import List from '@mui/joy/List';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
@@ -9,7 +8,7 @@ import ListItemContent from '@mui/joy/ListItemContent';
 import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
-import { NavList } from '../components';
+import { NavList, UserMenu } from '../components';
 // import MuiLogo from './MuiLogo';
 // import ColorSchemeToggle from './ColorSchemeToggle';
 // import { closeSidebar } from '../utils';
@@ -140,17 +139,8 @@ export function Sidebar() {
         </List>
       </Box>
       <Divider />
-      <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-        <Box sx={{ minWidth: 0, flex: 1 }}>
-          <Typography fontSize="sm" fontWeight="lg">
-            Steve E.
-          </Typography>
-          <Typography level="body-xs">@steveEberger</Typography>
-        </Box>
-        <IconButton variant="plain" color="neutral">
-          <i data-feather="log-out" />
-        </IconButton>
-      </Box>
+
+      <UserMenu />
     </Sheet>
   );
 }

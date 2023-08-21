@@ -7,6 +7,7 @@ import {
   SsnInput,
   NavList,
   SelectInput,
+  CheckboxInput,
 } from 'components';
 import { Container, Divider, Grid, Stack, Typography } from '@mui/joy';
 
@@ -95,6 +96,7 @@ export default function Flow() {
             label="Ownership percentage"
             helperText="Some helper text goes here."
           />
+          <CheckboxInput fieldName="agree" label="Do you agree to terms?" />
         </Form>
       </Grid>
 

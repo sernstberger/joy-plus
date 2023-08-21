@@ -52,7 +52,7 @@ export function ConnectInput({
     defaultValue,
   });
 
-  console.log('methods', fieldName, methods.field.onChange);
+  // console.log('methods', fieldName, methods.field.onChange);
 
   return (
     <FormControl

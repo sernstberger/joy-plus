@@ -24,8 +24,8 @@ export function PhoneInput({
           format="(###) ###-####"
           allowEmptyFormatting
           customInput={Input}
-          value={field.value}
           type="tel"
+          {...field}
         />
       )}
     </ConnectInput>

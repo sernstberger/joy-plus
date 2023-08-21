@@ -1,18 +1,22 @@
 import { Button, Stack } from '@mui/joy';
 import { DevTool } from '@hookform/devtools';
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
 export interface FormProps {
   children: React.ReactNode;
 }
 
 export function Form({ children }: FormProps) {
-  const methods = useForm({
-    defaultValues: {
-      // hello: "hi"
-    },
-  });
-  const onSubmit = (data: any) => console.log('***', JSON.stringify(data));
+  // const methods = useForm({
+  //   defaultValues: {
+  //     // hello: "hi"
+  //     test: 'hi',
+  //   },
+  // });
+  const methods = useForm();
+  // const onSubmit = (data: any) => console.log('***', JSON.stringify(data));
+  // const onSubmit: SubmitHandler<any> = (data) => console.log(data);
+  const onSubmit = (data: any) => console.log(data);
 
   return (
     <FormProvider {...methods}>

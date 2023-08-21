@@ -24,7 +24,7 @@ export function FeinInput({
           format="##-#######"
           allowEmptyFormatting
           customInput={Input}
-          value={field.value}
+          {...field}
         />
       )}
     </ConnectInput>

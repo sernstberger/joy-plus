@@ -24,7 +24,7 @@ export function SsnInput({
           format="###-##-####"
           allowEmptyFormatting
           customInput={Input}
-          value={field.value}
+          {...field}
         />
       )}
     </ConnectInput>

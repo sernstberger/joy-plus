@@ -18,7 +18,7 @@ export function DateInput({
 }: DateInputProps) {
   return (
     <ConnectInput {...{ fieldName, label, required, helperText, defaultValue }}>
-      {({ formState, field }: any) => <Input value={field.value} type="date" />}
+      {({ formState, field }: any) => <Input {...field} type="date" />}
     </ConnectInput>
   );
 }

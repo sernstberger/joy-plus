@@ -6,6 +6,7 @@ import {
   DateInput,
   SsnInput,
   NavList,
+  SelectInput,
 } from 'components';
 import { Container, Divider, Grid, Stack, Typography } from '@mui/joy';
 
@@ -53,7 +54,7 @@ export default function Flow() {
           <TextInput fieldName="businessName" label="Business name" required />
           <DateInput fieldName="effectiveDate" label="Effective date" />
           {/* industry should be select */}
-          <TextInput fieldName="industry" label="Industry" />
+          <SelectInput fieldName="industry" label="Industry" />
           {/* address should be a google autocomplete */}
           <TextInput fieldName="mailingAddress" label="Mailing address" />
           <FeinInput fieldName="fein" label="FEIN" />

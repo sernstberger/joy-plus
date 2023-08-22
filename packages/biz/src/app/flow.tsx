@@ -54,7 +54,6 @@ export default function Flow() {
         <Form>
           <TextInput fieldName="businessName" label="Business name" required />
           <DateInput fieldName="effectiveDate" label="Effective date" />
-          {/* industry should be select */}
           <SelectInput fieldName="industry" label="Industry" />
           {/* address should be a google autocomplete */}
           <TextInput fieldName="mailingAddress" label="Mailing address" />

@@ -3,28 +3,27 @@ import { PatternFormat } from 'react-number-format';
 import { ConnectInput } from '../ConnectInput';
 import { Input, InputProps } from '@mui/joy';
 
-export interface PhoneInputProps extends InputProps {
+export interface FeinInputProps extends InputProps {
   fieldName: string;
   label: string;
   helperText?: string;
   defaultValue?: string;
 }
 
-export function PhoneInput({
+export function FeinInput({
   fieldName,
   label,
   helperText = undefined,
   required = false,
   defaultValue,
-}: PhoneInputProps) {
+}: FeinInputProps) {
   return (
     <ConnectInput {...{ fieldName, label, required, helperText, defaultValue }}>
       {({ formState, field }: any) => (
         <PatternFormat
-          format="(###) ###-####"
+          format="##-#######"
           allowEmptyFormatting
           customInput={Input}
-          type="tel"
           {...field}
         />
       )}
@@ -32,4 +31,4 @@ export function PhoneInput({
   );
 }
 
-export default PhoneInput;
+export default FeinInput;

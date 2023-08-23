@@ -1,3 +1,4 @@
+import React from 'react';
 import { useController } from 'react-hook-form';
 import { FormControl, FormHelperText, FormLabel } from '@mui/joy';
 import rules from './rules';
@@ -52,11 +53,11 @@ export function ConnectInput({
     defaultValue,
   });
 
-  console.log('methods', fieldName, methods.field.onChange);
+  // console.log('methods', methods);
 
   return (
     <FormControl
-      {...methods}
+      // {...methods}
       // orientation="horizontal"
       required={required}
       error={!!methods.fieldState.error?.message}

@@ -44,7 +44,7 @@ export function NumberInput({
             const foo = values.floatValue;
             setVal(foo);
             field.onChange(foo);
-            console.log('!!!^^^', field.name, foo, typeof foo, val);
+            // console.log('!!!^^^', field.name, foo, typeof foo, val);
           }}
           allowLeadingZeros={false}
         />

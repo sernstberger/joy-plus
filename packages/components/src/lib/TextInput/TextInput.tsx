@@ -23,9 +23,7 @@ export function TextInput({
       {...{ fieldName, label, required, helperText, defaultValue, disabled }}
       {...rest}
     >
-      {({ formState, field }: any) => (
-        <Input value={field.value} disabled={disabled} />
-      )}
+      {({ formState, field }: any) => <Input {...field} disabled={disabled} />}
     </ConnectInput>
   );
 }

@@ -30,7 +30,7 @@ export function CheckboxInput({
       labelHidden
     >
       {({ formState, field }: any) => (
-        <Checkbox label={label} required value={field.value} />
+        <Checkbox label={label} required {...field} />
       )}
     </ConnectInput>
   );

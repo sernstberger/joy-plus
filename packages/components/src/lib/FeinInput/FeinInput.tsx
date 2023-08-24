@@ -25,6 +25,7 @@ export function FeinInput({
           allowEmptyFormatting
           customInput={Input}
           {...field}
+          ref={undefined}
         />
       )}
     </ConnectInput>

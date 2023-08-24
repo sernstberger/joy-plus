@@ -17,7 +17,7 @@ export function NavList(props: NavListProps) {
       }}
     >
       {props.links.map((bar: NavListItemProps) => {
-        return <NavListItem {...bar} />;
+        return <NavListItem key={bar.title} {...bar} />;
       })}
     </List>
   );

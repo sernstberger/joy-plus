@@ -25,6 +25,7 @@ export function SsnInput({
           allowEmptyFormatting
           customInput={Input}
           {...field}
+          ref={undefined}
         />
       )}
     </ConnectInput>

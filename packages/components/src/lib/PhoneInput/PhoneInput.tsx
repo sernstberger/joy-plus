@@ -26,6 +26,7 @@ export function PhoneInput({
           customInput={Input}
           type="tel"
           {...field}
+          ref={undefined}
         />
       )}
     </ConnectInput>

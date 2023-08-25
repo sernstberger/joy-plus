@@ -1243,7 +1243,7 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@babel/runtime@^7.22.10", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.22.10", "@babel/runtime@^7.22.11", "@babel/runtime@^7.8.4":
   version "7.22.11"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.11.tgz#7a9ba3bbe406ad6f9e8dd4da2ece453eb23a77a4"
   integrity sha512-ee7jVNlWN09+KftVOu9n7S8gQzD/Z6hN/I8VBRXW4P1+Xe7kJGXMwu8vds4aGIMHZnNbdpSWCfZZtinytpcAvA==
@@ -1675,7 +1675,7 @@
     expect "^29.6.4"
     jest-snapshot "^29.6.4"
 
-"@jest/fake-timers@^29.6.2", "@jest/fake-timers@^29.6.4":
+"@jest/fake-timers@^29.6.4":
   version "29.6.4"
   resolved "https://registry.yarnpkg.com/@jest/fake-timers/-/fake-timers-29.6.4.tgz#45a27f093c43d5d989362a3e7a8c70c83188b4f6"
   integrity sha512-6UkCwzoBK60edXIIWb0/KWkuj7R7Qq91vVInOe3De6DSpaEiqjKcJw4F7XUet24Wupahj9J6PlR09JqJ5ySDHw==
@@ -2062,11 +2062,11 @@
     react-is "^18.2.0"
 
 "@mui/x-charts@^6.0.0-alpha.7":
-  version "6.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@mui/x-charts/-/x-charts-6.0.0-alpha.7.tgz#ddd9fdc3b8765703ce6599431b02aa44f39cc4af"
-  integrity sha512-duZkx4ug+yWzZN4lmY31TngUhoGt8nFoKl8hFMNzIFZCB+u6Z5bbsa0xW5TXL+xNihXhE5lPIJu9SeW1Uv2jqQ==
+  version "6.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@mui/x-charts/-/x-charts-6.0.0-alpha.8.tgz#94c414aaf242d34d56ca9fd290b1734214df1b11"
+  integrity sha512-9CKo0sdSaLvi/DBCD3IAX9C9P2ntN0evTghyTGcdWVm0VdT68CzpN8cm/f9J1c4z0fstOMjwJq8CfRPUyL9F8A==
   dependencies:
-    "@babel/runtime" "^7.22.6"
+    "@babel/runtime" "^7.22.11"
     clsx "^2.0.0"
     d3-color "^3.1.0"
     d3-scale "^4.0.2"
@@ -7411,7 +7411,7 @@ jest-message-util@^29.6.1, jest-message-util@^29.6.2, jest-message-util@^29.6.3:
     slash "^3.0.0"
     stack-utils "^2.0.3"
 
-jest-mock@^29.6.2, jest-mock@^29.6.3:
+jest-mock@^29.6.3:
   version "29.6.3"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-29.6.3.tgz#433f3fd528c8ec5a76860177484940628bdf5e0a"
   integrity sha512-Z7Gs/mOyTSR4yPsaZ72a/MtuK6RnC3JYqWONe48oLaoEcYwEDxqvbXz85G4SJrm2Z5Ar9zp6MiHF4AlFlRM4Pg==

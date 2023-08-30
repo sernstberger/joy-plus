@@ -5,50 +5,15 @@ import {
   PhoneInput,
   DateInput,
   SsnInput,
-  NavList,
   SelectInput,
   CheckboxInput,
 } from 'components';
-import { Container, Divider, Grid, Stack, Typography } from '@mui/joy';
+import { Divider, Grid, Stack, Typography } from '@mui/joy';
 
 export default function Flow() {
   return (
-    <Container>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
+    <div>
       <Grid xs={12}>
-        <NavList
-          orientation="horizontal"
-          links={[
-            {
-              title: 'Home',
-            },
-            {
-              title: 'Quote',
-              // children: [
-              //   {
-              //     title: 'Foo',
-              //   },
-              //   {
-              //     title: 'Resources',
-              //   },
-              //   {
-              //     title: 'Reports',
-              //   },
-              // ],
-            },
-            {
-              title: 'Resources',
-            },
-            {
-              title: 'Reports',
-            },
-          ]}
-        />
         <div>Account selector</div>
         <div>User select menu</div>
         <Form>
@@ -98,12 +63,6 @@ export default function Flow() {
           <CheckboxInput fieldName="agree" label="Do you agree to terms?" />
         </Form>
       </Grid>
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-    </Container>
+    </div>
   );
 }

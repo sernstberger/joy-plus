@@ -1,12 +1,11 @@
-// import { Sidebar, Nav } from 'components';
-// import Home from './home';
 import Flow from './flow';
 import { Route, Routes } from 'react-router-dom';
 
 import React from 'react';
 import { Header, NavList } from 'components';
 import { Box, Button, Card, Container, Sheet } from '@mui/joy';
-import { Home } from '@mui/icons-material';
+import { Home as HomeIcon } from '@mui/icons-material';
+import Home from './home';
 
 export function App() {
   return (
@@ -16,7 +15,14 @@ export function App() {
         subtitle="Things can go here"
         action={<Button>cool</Button>}
       />
-      <Card>alkjfaldskfjalfjslfkja</Card>
+
+      <Routes>
+        <Route path="/" element={<div>home</div>} />
+        <Route path="/foo" element={<div>foo</div>} />
+      </Routes>
+
+      {/* <Home /> */}
+      <Flow />
     </Layout>
   );
 }
@@ -49,29 +55,15 @@ export function Layout(
       <Sheet color="neutral" variant="plain">
         <NavList
           links={[
-            { title: 'Home', icon: <Home /> },
-            { title: 'Products', icon: <Home /> },
-            { title: 'Scores', icon: <Home /> },
+            { title: 'Home', icon: <HomeIcon /> },
+            { title: 'Products', icon: <HomeIcon /> },
+            { title: 'Scores', icon: <HomeIcon /> },
           ]}
           {...{ orientation }}
         />
       </Sheet>
       <Box component="main">
         <Container>{children}</Container>
-
-        <Box sx={{ display: 'flex', minHeight: '100dvh' }}>
-          {/* <Nav /> */}
-          {/* <Sidebar /> */}
-          <Box component="main" className="MainContent" flex={1}>
-            {/* <Home /> */}
-            <Flow />
-
-            <Routes>
-              <Route path="/" element={<div>home</div>} />
-              <Route path="/foo" element={<div>foo</div>} />
-            </Routes>
-          </Box>
-        </Box>
       </Box>
     </Box>
   );

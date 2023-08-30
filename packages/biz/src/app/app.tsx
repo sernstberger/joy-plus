@@ -1,15 +1,13 @@
 import Flow from './flow';
 import { Route, Routes } from 'react-router-dom';
 
-import React from 'react';
-import { Header, Layout, NavList } from 'components';
-import { Box, Button, Card, Container, Sheet } from '@mui/joy';
-import { Home as HomeIcon } from '@mui/icons-material';
+import { Header, Layout } from 'components';
+import { Button } from '@mui/joy';
 import Home from './home';
 
 export function App() {
   return (
-    <Layout orientation="horizontal">
+    <Layout orientation="vertical">
       <Header
         title="hello"
         subtitle="Things can go here"
@@ -25,12 +23,6 @@ export function App() {
       <Flow />
     </Layout>
   );
-}
-
-interface LayoutProps {
-  orientation?: 'horizontal' | 'vertical';
-  children: React.ReactNode;
-  size?: number;
 }
 
 export default App;

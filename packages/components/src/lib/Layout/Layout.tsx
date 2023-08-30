@@ -17,6 +17,7 @@ export function Layout({
 }: LayoutProps) {
   const horizontalOrientation = orientation === 'horizontal';
   const defaultSize = horizontalOrientation ? 60 : 200;
+  const calculatedSize = size || defaultSize;
   return (
     <Box
       sx={{
@@ -25,13 +26,20 @@ export function Layout({
         gridAutoFlow: horizontalOrientation ? 'row' : 'column',
         gridTemplateColumns: horizontalOrientation
           ? undefined
-          : `${defaultSize}px 1fr`,
+          : `${calculatedSize}px 1fr`,
         gridTemplateRows: horizontalOrientation
-          ? `${defaultSize}px 1fr`
+          ? `${calculatedSize}px 1fr`
           : undefined,
       }}
     >
-      <Sheet color="neutral" variant="plain">
+      <Sheet
+        color="neutral"
+        variant="plain"
+        sx={{
+          display: 'flex',
+          flexDirection: horizontalOrientation ? 'row' : 'column',
+        }}
+      >
         <div>Logo</div>
         <NavList
           links={[
@@ -42,7 +50,14 @@ export function Layout({
           {...{ orientation }}
         />
       </Sheet>
-      <Box component="main" padding={2}>
+      <Box
+        component="main"
+        padding={2}
+        sx={{
+          overflowY: 'auto',
+          height: horizontalOrientation ? undefined : '100vh',
+        }}
+      >
         <Container>{children}</Container>
       </Box>
     </Box>

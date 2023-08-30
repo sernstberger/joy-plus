@@ -64,3 +64,21 @@ export const NavListItem = ({ title, ...rest }: NavListItemProps) => {
 };
 
 export default NavListItem;
+
+// export function Nav({ orientation = 'vertical', nav }: NavProps) {
+//   return (
+//     <List>
+//       {nav.map(({ title, icon }) => {
+//         return (
+//           <ListItem>
+//             <ListItemButton>
+//               {icon && <ListItemDecorator>{icon}</ListItemDecorator>}
+//               <ListItemContent>{title}</ListItemContent>
+//               {/* <KeyboardArrowRight /> */}
+//             </ListItemButton>
+//           </ListItem>
+//         );
+//       })}
+//     </List>
+//   );
+// }

@@ -91,17 +91,17 @@ export function Sidebar() {
             },
             {
               title: 'Quote',
-              children: [
-                {
-                  title: 'Foo',
-                },
-                {
-                  title: 'Resources',
-                },
-                {
-                  title: 'Reports',
-                },
-              ],
+              // children: [
+              //   {
+              //     title: 'Foo',
+              //   },
+              //   {
+              //     title: 'Resources',
+              //   },
+              //   {
+              //     title: 'Reports',
+              //   },
+              // ],
             },
             {
               title: 'Resources',

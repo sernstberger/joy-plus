@@ -29,17 +29,17 @@ export default function Flow() {
             },
             {
               title: 'Quote',
-              children: [
-                {
-                  title: 'Foo',
-                },
-                {
-                  title: 'Resources',
-                },
-                {
-                  title: 'Reports',
-                },
-              ],
+              // children: [
+              //   {
+              //     title: 'Foo',
+              //   },
+              //   {
+              //     title: 'Resources',
+              //   },
+              //   {
+              //     title: 'Reports',
+              //   },
+              // ],
             },
             {
               title: 'Resources',

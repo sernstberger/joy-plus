@@ -17,8 +17,16 @@ export default function Flow() {
       <Grid xs={12}>
         <div>Account selector</div>
         <div>User select menu</div>
+        <br />
+        <br />
+        <Divider />
+        <br />
+        <br />
         <Form>
-          <FormSection title="Personal information">
+          <FormSection
+            primary="Personal information"
+            secondary="We just need it. Give it to us."
+          >
             <FileUploadInput />
             <TextInput
               fieldName="businessName"
@@ -34,7 +42,7 @@ export default function Flow() {
 
           <Divider />
 
-          <FormSection title="Owner info">
+          <FormSection primary="Owner info">
             {/* need to be able to add multiple owners (use useFieldArray) */}
 
             {/* <Grid container spacing={2}>
@@ -78,12 +86,12 @@ export default function Flow() {
   );
 }
 
-export const FormSection = ({ children, title }: any) => {
+export const FormSection = ({ children, primary, secondary }: any) => {
   return (
     <Grid container>
       <Grid xs={12} sm={4}>
-        <Typography>{title}</Typography>
-        <Typography level="body-sm">We just need it. Give it to us.</Typography>
+        <Typography fontWeight="bold">{primary}</Typography>
+        {secondary && <Typography level="body-sm">{secondary}</Typography>}
       </Grid>
       <Grid xs={12} sm={8}>
         <Stack

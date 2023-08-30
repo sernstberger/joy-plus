@@ -14,13 +14,13 @@ import {
   ListItemButton,
   ListItemDecorator,
   ListItemContent,
+  Sheet,
 } from '@mui/joy';
-import { LineChart } from '@mui/x-charts/LineChart';
 import { Home, KeyboardArrowRight } from '@mui/icons-material';
 
 export function App() {
   return (
-    <Layout orientation="vertical" size={200}>
+    <Layout orientation="vertical">
       <Header
         title="hello"
         subtitle="Things can go here"
@@ -40,46 +40,63 @@ interface LayoutProps {
 export function Layout({
   children,
   orientation = 'vertical',
-  size = 200,
+  size,
 }: LayoutProps) {
   const horizontalOrientation = orientation === 'horizontal';
+  const defaultSize = horizontalOrientation ? 60 : 200;
   return (
     <Box
-      // direction="row"
       sx={{
         minHeight: '100vh',
         display: 'grid',
         gridAutoFlow: horizontalOrientation ? 'row' : 'column',
         gridTemplateColumns: horizontalOrientation
           ? undefined
-          : `${size}px 1fr`,
-        gridTemplateRows: horizontalOrientation ? `${size}px 1fr` : undefined,
+          : `${defaultSize}px 1fr`,
+        gridTemplateRows: horizontalOrientation
+          ? `${defaultSize}px 1fr`
+          : undefined,
       }}
     >
-      <Box sx={{ backgroundColor: 'red' }}>
-        <Nav {...{ orientation }} />
+      <Sheet color="neutral" variant="plain">
+        <Nav
+          nav={[
+            { title: 'Home', icon: <Home /> },
+            { title: 'Products', icon: <Home /> },
+            { title: 'Scores', icon: <Home /> },
+          ]}
+          {...{ orientation }}
+        />
+      </Sheet>
+      <Box component="main">
+        <Container>{children}</Container>
       </Box>
-      <Box>{children}</Box>
     </Box>
   );
 }
 
 interface NavProps {
   orientation?: 'horizontal' | 'vertical';
+  nav: {
+    title: string;
+    icon?: React.ReactNode;
+  }[];
 }
 
-export function Nav({ orientation = 'vertical' }: NavProps) {
+export function Nav({ orientation = 'vertical', nav }: NavProps) {
   return (
     <List orientation={orientation}>
-      <ListItem>
-        <ListItemButton>
-          <ListItemDecorator>
-            <Home />
-          </ListItemDecorator>
-          <ListItemContent>Home</ListItemContent>
-          <KeyboardArrowRight />
-        </ListItemButton>
-      </ListItem>
+      {nav.map(({ title, icon }) => {
+        return (
+          <ListItem>
+            <ListItemButton>
+              {icon && <ListItemDecorator>{icon}</ListItemDecorator>}
+              <ListItemContent>{title}</ListItemContent>
+              {/* <KeyboardArrowRight /> */}
+            </ListItemButton>
+          </ListItem>
+        );
+      })}
     </List>
   );
 }

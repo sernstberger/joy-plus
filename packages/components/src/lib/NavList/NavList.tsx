@@ -11,20 +11,22 @@ interface NavListProps extends ListProps {
   // }[]
 }
 
-export function NavList(props: NavListProps) {
+export function NavList({ links, orientation, ...rest }: NavListProps) {
   return (
     <List
-      {...props}
-      orientation={props.orientation}
+      {...rest}
+      orientation={orientation}
       color="primary"
-      variant="outlined"
-      // sx={{
-      //   '--ListItem-radius': '8px',
-      //   '--List-gap': '4px',
-      //   '--List-nestedInsetStart': '40px',
-      // }}
+      // variant="outlined"
+      sx={
+        {
+          //   '--ListItem-radius': '8px',
+          //   '--List-gap': '4px',
+          //   '--List-nestedInsetStart': '40px',
+        }
+      }
     >
-      {props.links.map((link: NavListItemProps) => {
+      {links.map((link: NavListItemProps) => {
         return <NavListItem key={link.title} {...link} />;
       })}
     </List>

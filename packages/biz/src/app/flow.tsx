@@ -15,12 +15,8 @@ export default function Flow() {
   return (
     <div>
       <Grid xs={12}>
-        <div>Account selector</div>
-        <div>User select menu</div>
-        <br />
         <br />
         <Divider />
-        <br />
         <br />
         <Form>
           <FormSection

@@ -9,6 +9,7 @@ export * from './FileUploadInput/FileUploadInput';
 export * from './FeinInput/FeinInput';
 export * from './Form/Form';
 export * from './Layout/Layout';
+export * from './Logo/Logo';
 export * from './Header/Header';
 export * from './Nav/Nav';
 export * from './NavList/NavList';

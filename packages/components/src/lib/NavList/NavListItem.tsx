@@ -9,13 +9,13 @@ import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
 import Dropdown from '@mui/joy/Dropdown';
 import { ExpandMore, Home } from '@mui/icons-material';
-import { Link, To } from 'react-router-dom';
+import { NavLink, To, useMatch } from 'react-router-dom';
 export interface NavListItemProps extends ListItemProps {
   // children?: Omit<NavListItemProps[], 'children'>;
 
   title: string;
   icon?: React.ReactNode;
-  to: To;
+  to: string;
 }
 
 export const NavListItem = ({ title, to, ...rest }: NavListItemProps) => {
@@ -29,16 +29,19 @@ export const NavListItem = ({ title, to, ...rest }: NavListItemProps) => {
   //   [],
   // );
 
+  const selected: boolean = !!useMatch(to);
+  console.log('!!!???', selected);
+
   return (
     <ListItem
       {...rest}
       // nested={hasChildren}
     >
       <ListItemButton
-        // selected
+        selected={selected}
         // color="primary"
         // onClick={() => setOpen(!open)}
-        component={Link}
+        component={NavLink}
         to={to}
       >
         <ListItemDecorator>

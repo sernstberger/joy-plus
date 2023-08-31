@@ -15,12 +15,11 @@ export function App() {
       />
 
       <Routes>
-        <Route path="/" element={<div>home</div>} />
-        <Route path="/foo" element={<div>foo</div>} />
+        <Route path="/" element={<Home />} />
+        <Route path="products" element={<Flow />} />
       </Routes>
 
       {/* <Home /> */}
-      <Flow />
     </Layout>
   );
 }

@@ -8,8 +8,8 @@ import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
 import Dropdown from '@mui/joy/Dropdown';
-import { ExpandMore, Home } from '@mui/icons-material';
-import { NavLink, To, useMatch } from 'react-router-dom';
+import { ExpandMore } from '@mui/icons-material';
+import { NavLink, useMatch } from 'react-router-dom';
 export interface NavListItemProps extends ListItemProps {
   // children?: Omit<NavListItemProps[], 'children'>;
 
@@ -18,7 +18,7 @@ export interface NavListItemProps extends ListItemProps {
   to: string;
 }
 
-export const NavListItem = ({ title, to, ...rest }: NavListItemProps) => {
+export const NavListItem = ({ title, to, icon, ...rest }: NavListItemProps) => {
   // const [open, setOpen] = React.useState(false);
   // const hasChildren = children && children.length > 0;
 
@@ -30,7 +30,6 @@ export const NavListItem = ({ title, to, ...rest }: NavListItemProps) => {
   // );
 
   const selected: boolean = !!useMatch(to);
-  console.log('!!!???', selected);
 
   return (
     <ListItem
@@ -44,9 +43,7 @@ export const NavListItem = ({ title, to, ...rest }: NavListItemProps) => {
         component={NavLink}
         to={to}
       >
-        <ListItemDecorator>
-          <Home />
-        </ListItemDecorator>
+        {icon && <ListItemDecorator>{icon}</ListItemDecorator>}
         <ListItemContent>{title}</ListItemContent>
         {/* {hasChildren && <ExpandMore />} */}
       </ListItemButton>

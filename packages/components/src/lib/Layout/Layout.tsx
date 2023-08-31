@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { Box, Container, Sheet } from '@mui/joy';
-import { Home as HomeIcon } from '@mui/icons-material';
+import HomeIcon from '@mui/icons-material/Home';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import ScoreboardIcon from '@mui/icons-material/Scoreboard';
 import { NavList } from '../NavList/NavList';
 import { Logo } from '../Logo/Logo';
 
@@ -60,8 +62,8 @@ export function Layout({
         <NavList
           links={[
             { title: 'Home', icon: <HomeIcon />, to: '/' },
-            { title: 'Products', icon: <HomeIcon />, to: 'products' },
-            { title: 'Scores', icon: <HomeIcon />, to: 'scores' },
+            { title: 'Products', icon: <InventoryIcon />, to: 'products' },
+            { title: 'Scores', icon: <ScoreboardIcon />, to: 'scores' },
           ]}
           {...{ orientation }}
         />

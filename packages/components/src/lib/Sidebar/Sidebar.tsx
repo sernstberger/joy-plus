@@ -88,9 +88,11 @@ export function Sidebar() {
           links={[
             {
               title: 'Home',
+              to: '/',
             },
             {
               title: 'Quote',
+              to: 'quote',
               // children: [
               //   {
               //     title: 'Foo',
@@ -105,9 +107,11 @@ export function Sidebar() {
             },
             {
               title: 'Resources',
+              to: 'resources',
             },
             {
               title: 'Reports',
+              to: 'reports',
             },
           ]}
         />

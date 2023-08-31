@@ -59,9 +59,9 @@ export function Layout({
         <Logo />
         <NavList
           links={[
-            { title: 'Home', icon: <HomeIcon /> },
-            { title: 'Products', icon: <HomeIcon /> },
-            { title: 'Scores', icon: <HomeIcon /> },
+            { title: 'Home', icon: <HomeIcon />, to: '/' },
+            { title: 'Products', icon: <HomeIcon />, to: 'products' },
+            { title: 'Scores', icon: <HomeIcon />, to: 'scores' },
           ]}
           {...{ orientation }}
         />

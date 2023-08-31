@@ -9,16 +9,17 @@ import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
 import Dropdown from '@mui/joy/Dropdown';
 import { ExpandMore, Home } from '@mui/icons-material';
-
+import { Link, To } from 'react-router-dom';
 export interface NavListItemProps extends ListItemProps {
   // children?: Omit<NavListItemProps[], 'children'>;
 
   title: string;
   icon?: React.ReactNode;
+  to: To;
 }
 
-export const NavListItem = ({ title, ...rest }: NavListItemProps) => {
-  const [open, setOpen] = React.useState(false);
+export const NavListItem = ({ title, to, ...rest }: NavListItemProps) => {
+  // const [open, setOpen] = React.useState(false);
   // const hasChildren = children && children.length > 0;
 
   // const handleOpenChange = React.useCallback(
@@ -36,7 +37,9 @@ export const NavListItem = ({ title, ...rest }: NavListItemProps) => {
       <ListItemButton
         // selected
         // color="primary"
-        onClick={() => setOpen(!open)}
+        // onClick={() => setOpen(!open)}
+        component={Link}
+        to={to}
       >
         <ListItemDecorator>
           <Home />

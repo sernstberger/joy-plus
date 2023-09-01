@@ -2062,9 +2062,9 @@
     react-is "^18.2.0"
 
 "@mui/x-charts@^6.0.0-alpha.7":
-  version "6.0.0-alpha.8"
-  resolved "https://registry.yarnpkg.com/@mui/x-charts/-/x-charts-6.0.0-alpha.8.tgz#94c414aaf242d34d56ca9fd290b1734214df1b11"
-  integrity sha512-9CKo0sdSaLvi/DBCD3IAX9C9P2ntN0evTghyTGcdWVm0VdT68CzpN8cm/f9J1c4z0fstOMjwJq8CfRPUyL9F8A==
+  version "6.0.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@mui/x-charts/-/x-charts-6.0.0-alpha.9.tgz#c4d780a0c72beb79af76932b294e9c12a1d4561a"
+  integrity sha512-2DVTbyxsm3g0D6kztQP9W4W9OOGeIQ/g6Ip6gjHj2wOOqkDB36bZxwVG/HlJuaVFBL001vI2VkYJYy+helw9gA==
   dependencies:
     "@babel/runtime" "^7.22.11"
     clsx "^2.0.0"

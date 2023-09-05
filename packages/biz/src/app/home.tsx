@@ -1,6 +1,7 @@
 import { Logo } from 'components';
 import {
   AspectRatio,
+  AspectRatioProps,
   Button,
   Card,
   CardActions,
@@ -18,7 +19,7 @@ import { useState } from 'react';
 import { ListItemButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
-interface CreditCardProps {
+interface CreditCardProps extends AspectRatioProps {
   name: string;
   number: string;
   expiry: string;
@@ -33,13 +34,15 @@ const CreditCard = ({
   expiry,
   width = 3.375,
   height = 2.125,
+  color = 'primary',
 }: CreditCardProps) => {
   return (
     <AspectRatio
       ratio={`${width}/${height}`}
       // component={Card}
       variant="solid"
-      color="primary"
+      color={color}
+
       // flex
       // maxHeight={300}
     >
@@ -160,6 +163,12 @@ export default function Home() {
               max={10}
               disabled={lockLimits}
             />
+            <SliderInput
+              label="what goes here"
+              defaultValue={3}
+              max={10}
+              disabled={lockLimits}
+            />
             <Divider />
             <CardActions>
               <Button variant="plain" color="neutral" sx={{ mr: 'auto' }}>
@@ -183,21 +192,25 @@ export default function Home() {
               name="Sandra Franzberger"
               number="1111222233334445"
               expiry="06/23"
+              color="success"
             />
             <CreditCard
               name="Sandra Franzberger"
               number="1111222233334445"
               expiry="06/23"
+              color="warning"
             />
             <CreditCard
               name="Sandra Franzberger"
               number="1111222233334445"
               expiry="06/23"
+              color="danger"
             />
             <CreditCard
               name="Sandra Franzberger"
               number="1111222233334445"
               expiry="06/23"
+              color="neutral"
             />
           </Stack>
         </Grid>

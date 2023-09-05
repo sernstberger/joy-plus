@@ -1,14 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import CheckboxInput from './CheckboxInput';
-import { Form } from '../components';
+import EmailInput from './EmailInput';
+import { Form } from '../Form/Form';
 
-describe('CheckboxInput', () => {
+describe('EmailInput', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
       <Form>
-        <CheckboxInput fieldName="email" label="Email" />
+        <EmailInput fieldName="email" label="Email" />
       </Form>,
     );
     expect(baseElement).toBeTruthy();

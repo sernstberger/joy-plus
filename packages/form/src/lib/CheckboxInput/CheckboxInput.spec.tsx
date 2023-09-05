@@ -1,15 +1,15 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import EmailInput from './EmailInput';
-import { Form } from '../components';
+import CheckboxInput from './CheckboxInput';
+import { Form } from '../Form/Form';
 
-describe('EmailInput', () => {
+describe('CheckboxInput', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
       <Form>
-        <EmailInput fieldName="email" label="Email" />
-      </Form>
+        <CheckboxInput fieldName="email" label="Email" />
+      </Form>,
     );
     expect(baseElement).toBeTruthy();
   });

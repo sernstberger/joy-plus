@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import ConnectInput from './ConnectInput';
 import { Input } from '@mui/joy';
-import { Form } from '../components';
+import { Form } from '../Form/Form';
 
 describe('ConnectInput', () => {
   it('should render successfully', () => {
@@ -17,7 +17,7 @@ describe('ConnectInput', () => {
         >
           {({ formState, field }: any) => <Input value={field.value} />}
         </ConnectInput>
-      </Form>
+      </Form>,
     );
     expect(baseElement).toBeTruthy();
   });

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import NumberInput from './NumberInput';
-import { Form } from '../components';
+import { Form } from '../Form/Form';
 
 describe('NumberInput', () => {
   it('should render successfully', () => {

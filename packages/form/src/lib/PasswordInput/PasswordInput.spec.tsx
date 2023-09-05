@@ -2,14 +2,14 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import PasswordInput from './PasswordInput';
-import { Form } from '../components';
+import { Form } from '../Form/Form';
 
 describe('PasswordInput', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
       <Form>
         <PasswordInput fieldName="password" label="Password" />
-      </Form>
+      </Form>,
     );
     expect(baseElement).toBeTruthy();
   });

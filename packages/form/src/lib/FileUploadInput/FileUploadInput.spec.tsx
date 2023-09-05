@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import FileUploadInput from './FileUploadInput';
-import { Form } from '../components';
+import { Form } from '../Form/Form';
 
 describe('FileUploadInput', () => {
   it('should render successfully', () => {

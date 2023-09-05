@@ -8,7 +8,7 @@ import {
   SelectInput,
   CheckboxInput,
   FileUploadInput,
-} from 'components';
+} from 'form';
 import { Divider, Grid, Stack, Typography } from '@mui/joy';
 
 export default function Flow() {
@@ -23,7 +23,10 @@ export default function Flow() {
             primary="Personal information"
             secondary="We just need it. Give it to us."
           >
-            <FileUploadInput />
+            <FileUploadInput
+              accept={['png', 'pdf', 'woff', 'ts']}
+              maxFiles={6}
+            />
             <TextInput
               fieldName="businessName"
               label="Business name"

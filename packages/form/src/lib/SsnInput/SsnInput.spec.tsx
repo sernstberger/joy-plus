@@ -1,14 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import FeinInput from './FeinInput';
-import { Form } from '../components';
+import SsnInput from './SsnInput';
+import { Form } from '../Form/Form';
 
-describe('FeinInput', () => {
+describe('SsnInput', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
       <Form>
-        <FeinInput fieldName="fein" label="FEIN" />
+        <SsnInput fieldName="ssn" label="SSN" />
       </Form>,
     );
     expect(baseElement).toBeTruthy();

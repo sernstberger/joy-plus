@@ -58,7 +58,7 @@ export function Layout({
           // },
         })}
       >
-        <Logo />
+        <Logo to="/" />
         <NavList
           links={[
             { title: 'Home', icon: <HomeIcon />, to: '/' },

@@ -1,4 +1,4 @@
-import { Header, Logo } from 'components';
+import { Logo } from 'components';
 import {
   AspectRatio,
   Button,
@@ -14,25 +14,29 @@ import {
   Stack,
   Typography,
 } from '@mui/joy';
+import { useState } from 'react';
+import { ListItemButton } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 interface CreditCardProps {
   name: string;
   number: string;
   expiry: string;
   // cvc: string;
+  height?: number;
+  width?: number;
 }
 
-const CreditCard = ({ name, number, expiry }: CreditCardProps) => {
-  {
-    /* Credit cards are 3.375 inches wide by 2.125 inches high.  */
-  }
-
-  const width = 3.375;
-  const height = 2.125;
-
+const CreditCard = ({
+  name,
+  number,
+  expiry,
+  width = 3.375,
+  height = 2.125,
+}: CreditCardProps) => {
   return (
     <AspectRatio
-      ratio="3.375/2.125"
+      ratio={`${width}/${height}`}
       // component={Card}
       variant="solid"
       color="primary"
@@ -50,15 +54,19 @@ const CreditCard = ({ name, number, expiry }: CreditCardProps) => {
             <Logo />
           </div>
 
-          <Stack direction="row" justifyContent="space-between">
+          <Stack direction="row" justifyContent="space-between" width="100%">
             <div>
-              <Typography level="body-lg">{number}</Typography>
+              <Typography level="body-lg">
+                {number.replace(/\d{4}(?=.)/g, '$& ')}
+              </Typography>
               <Stack direction="row" justifyContent="space-between">
-                <Typography>{name}</Typography>
+                <Typography textTransform="uppercase">{name}</Typography>
                 <Typography>{expiry}</Typography>
               </Stack>
             </div>
-            <div>card logo</div>
+
+            {/* card logo */}
+            <Logo width={50} />
           </Stack>
         </Stack>
       </div>
@@ -66,18 +74,24 @@ const CreditCard = ({ name, number, expiry }: CreditCardProps) => {
   );
 };
 
-const SliderInput = ({ label }: any) => {
+const SliderInput = ({ label, disabled = false }: any) => {
   return (
     <div>
-      <Typography>{label}</Typography>
-      <Slider defaultValue={3} max={10} />
+      <Stack direction="row" justifyContent="space-between">
+        <Typography>{label}</Typography>
+        <Typography level="body-lg" fontWeight="bold">
+          5000
+        </Typography>
+      </Stack>
+      <Slider defaultValue={3} max={10} disabled={disabled} />
     </div>
   );
 };
 
 export default function Home() {
+  const [lockLimits, setLockLimits] = useState(false);
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="md">
       {/* <Header
         title="something goes here"
         subtitle="foooobar"
@@ -89,11 +103,11 @@ export default function Home() {
         direction="row"
         justifyContent="flex-start"
         alignItems="stretch"
-        // spacing={2}
+        spacing={2}
       >
-        <Grid xs={12}>
+        <Grid xs={6}>
           <Card>
-            <Typography>Your cards</Typography>
+            <Typography level="h3">Your cards</Typography>
             <CreditCard
               name="Steven Ernstberger"
               number="1111222233334444"
@@ -111,30 +125,81 @@ export default function Home() {
 
             <List>
               <ListItem>
-                <div>logo</div>
+                <ListItemButton selected>
+                  <div>logo</div>
 
-                <Typography>yuuuup</Typography>
-                <Typography>expires asldkfsa</Typography>
+                  <Typography>yuuuup</Typography>
+                  <Typography>expires asldkfsa</Typography>
+                </ListItemButton>
               </ListItem>
-              <ListItem>beans</ListItem>
+              <ListItem>
+                <ListItemButton>beans</ListItemButton>
+              </ListItem>
+
+              <ListItem>
+                <ListItemButton>
+                  <Typography>
+                    <AddIcon />
+                    Add new card
+                  </Typography>
+                </ListItemButton>
+              </ListItem>
             </List>
 
-            <Typography>Limit tracker</Typography>
-            <div>5000</div>
+            <Typography level="h3">Limit tracker</Typography>
 
-            <SliderInput label="Thing goes here" defaultValue={3} max={10} />
-            <SliderInput label="Nope goes here" defaultValue={3} max={10} />
+            <SliderInput
+              label="Thing goes here"
+              defaultValue={3}
+              max={10}
+              disabled={lockLimits}
+            />
+            <SliderInput
+              label="Nope goes here"
+              defaultValue={3}
+              max={10}
+              disabled={lockLimits}
+            />
             <Divider />
             <CardActions>
               <Button variant="plain" color="neutral" sx={{ mr: 'auto' }}>
                 Close
               </Button>
               <Stack direction="row" spacing={1}>
-                <Button variant="outlined">Lock limits</Button>
+                <Button
+                  variant="outlined"
+                  onClick={() => setLockLimits((prevState) => !prevState)}
+                >
+                  {lockLimits ? 'Unlock limits' : 'Lock limits'}
+                </Button>
                 <Button>Add new card</Button>
               </Stack>
             </CardActions>
           </Card>
+        </Grid>
+        <Grid xs={6}>
+          <Stack spacing={2}>
+            <CreditCard
+              name="Sandra Franzberger"
+              number="1111222233334445"
+              expiry="06/23"
+            />
+            <CreditCard
+              name="Sandra Franzberger"
+              number="1111222233334445"
+              expiry="06/23"
+            />
+            <CreditCard
+              name="Sandra Franzberger"
+              number="1111222233334445"
+              expiry="06/23"
+            />
+            <CreditCard
+              name="Sandra Franzberger"
+              number="1111222233334445"
+              expiry="06/23"
+            />
+          </Stack>
         </Grid>
       </Grid>
 

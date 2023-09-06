@@ -1,7 +1,4 @@
-import { Logo } from 'components';
 import {
-  AspectRatio,
-  AspectRatioProps,
   Button,
   Card,
   CardActions,
@@ -10,7 +7,6 @@ import {
   Grid,
   List,
   ListItem,
-  Sheet,
   Slider,
   Stack,
   Typography,
@@ -18,64 +14,7 @@ import {
 import { useState } from 'react';
 import { ListItemButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-
-interface CreditCardProps extends AspectRatioProps {
-  name: string;
-  number: string;
-  expiry: string;
-  // cvc: string;
-  height?: number;
-  width?: number;
-}
-
-const CreditCard = ({
-  name,
-  number,
-  expiry,
-  width = 3.375,
-  height = 2.125,
-  color = 'primary',
-}: CreditCardProps) => {
-  return (
-    <AspectRatio
-      ratio={`${width}/${height}`}
-      // component={Card}
-      variant="solid"
-      color={color}
-
-      // flex
-      // maxHeight={300}
-    >
-      <div>
-        <Stack
-          justifyContent="space-between"
-          flex={1}
-          alignItems="flex-start"
-          sx={{ height: '100%', padding: 2 }}
-        >
-          <div>
-            <Logo />
-          </div>
-
-          <Stack direction="row" justifyContent="space-between" width="100%">
-            <div>
-              <Typography level="body-lg">
-                {number.replace(/\d{4}(?=.)/g, '$& ')}
-              </Typography>
-              <Stack direction="row" justifyContent="space-between">
-                <Typography textTransform="uppercase">{name}</Typography>
-                <Typography>{expiry}</Typography>
-              </Stack>
-            </div>
-
-            {/* card logo */}
-            <Logo width={50} />
-          </Stack>
-        </Stack>
-      </div>
-    </AspectRatio>
-  );
-};
+import { CreditCard } from 'components';
 
 const SliderInput = ({ label, disabled = false }: any) => {
   return (
@@ -108,7 +47,7 @@ export default function Home() {
         alignItems="stretch"
         spacing={2}
       >
-        <Grid xs={6}>
+        <Grid xs={12} md={6}>
           <Card>
             <Typography level="h3">Your cards</Typography>
             <CreditCard
@@ -186,7 +125,7 @@ export default function Home() {
             </CardActions>
           </Card>
         </Grid>
-        <Grid xs={6}>
+        <Grid xs={12} md={6}>
           <Stack spacing={2}>
             <CreditCard
               name="Sandra Franzberger"

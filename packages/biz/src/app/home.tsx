@@ -138,6 +138,7 @@ export default function Home() {
               number="1111222233334445"
               expirationDate="06/23"
               color="warning"
+              issuer="Mastercard"
             />
             <CreditCard
               name="Sandra Franzberger"

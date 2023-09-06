@@ -1,6 +1,8 @@
 import React from 'react';
 import { AspectRatio, AspectRatioProps, Stack, Typography } from '@mui/joy';
 import { Logo } from '../components';
+import { Mastercard } from './icons/Mastercard';
+import { Visa } from './icons/Visa';
 
 const Foo = ({ height = 40, width = 170 }: any) => {
   return (
@@ -26,6 +28,7 @@ export interface CreditCardProps extends AspectRatioProps {
   // cvc: string;
   height?: number;
   width?: number;
+  issuer?: 'Visa' | 'Mastercard';
 }
 
 export const CreditCard = ({
@@ -35,7 +38,10 @@ export const CreditCard = ({
   width = 3.375,
   height = 2.125,
   color = 'primary',
+  issuer = 'Visa',
 }: CreditCardProps) => {
+  const cardType = issuer === 'Visa' ? <Visa /> : <Mastercard />;
+
   return (
     <AspectRatio
       ratio={`${width}/${height}`}
@@ -69,8 +75,7 @@ export const CreditCard = ({
               </Stack>
             </div>
 
-            {/* card logo */}
-            <Foo width={50} />
+            {cardType}
           </Stack>
         </Stack>
       </div>

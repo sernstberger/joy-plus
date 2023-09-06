@@ -22,7 +22,7 @@ const Foo = ({ height = 40, width = 170 }: any) => {
 export interface CreditCardProps extends AspectRatioProps {
   name: string;
   number: string;
-  expiry: string;
+  expirationDate: string;
   // cvc: string;
   height?: number;
   width?: number;
@@ -31,7 +31,7 @@ export interface CreditCardProps extends AspectRatioProps {
 export const CreditCard = ({
   name,
   number,
-  expiry,
+  expirationDate,
   width = 3.375,
   height = 2.125,
   color = 'primary',
@@ -62,8 +62,10 @@ export const CreditCard = ({
                 {number.replace(/\d{4}(?=.)/g, '$& ')}
               </Typography>
               <Stack direction="row" justifyContent="space-between" spacing={2}>
-                <Typography textTransform="uppercase">{name}</Typography>
-                <Typography>{expiry}</Typography>
+                <Typography textTransform="uppercase" level="body-xs">
+                  {name}
+                </Typography>
+                <Typography level="body-xs">{expirationDate}</Typography>
               </Stack>
             </div>
 

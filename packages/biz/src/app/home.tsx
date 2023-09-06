@@ -53,12 +53,12 @@ export default function Home() {
             <CreditCard
               name="Steven Ernstberger"
               number="1111222233334444"
-              expiry="06/23"
+              expirationDate="06/23"
             />
             {/* <CreditCard
               name="Sandra Franzberger"
               number="1111222233334445"
-              expiry="06/23"
+              expirationDate="06/23"
             /> */}
             <Stack direction="row" spacing={1}>
               <Button variant="outlined">View card details</Button>
@@ -130,25 +130,25 @@ export default function Home() {
             <CreditCard
               name="Sandra Franzberger"
               number="1111222233334445"
-              expiry="06/23"
+              expirationDate="06/23"
               color="success"
             />
             <CreditCard
               name="Sandra Franzberger"
               number="1111222233334445"
-              expiry="06/23"
+              expirationDate="06/23"
               color="warning"
             />
             <CreditCard
               name="Sandra Franzberger"
               number="1111222233334445"
-              expiry="06/23"
+              expirationDate="06/23"
               color="danger"
             />
             <CreditCard
               name="Sandra Franzberger"
               number="1111222233334445"
-              expiry="06/23"
+              expirationDate="06/23"
               color="neutral"
             />
           </Stack>

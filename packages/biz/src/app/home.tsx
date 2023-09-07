@@ -5,8 +5,12 @@ import {
   Container,
   Divider,
   Grid,
+  IconButton,
   List,
   ListItem,
+  ListItemContent,
+  ListItemDecorator,
+  ListItemProps,
   Slider,
   Stack,
   Typography,
@@ -15,6 +19,8 @@ import { useState } from 'react';
 import { ListItemButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { CreditCard } from 'components';
+import { Visa } from 'components';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const SliderInput = ({ label, disabled = false }: any) => {
   return (
@@ -30,13 +36,45 @@ const SliderInput = ({ label, disabled = false }: any) => {
   );
 };
 
+export interface CreditCardListItemProps {
+  selected?: boolean;
+}
+
+const CreditCardListItem = ({
+  selected = false,
+  ...props
+}: CreditCardListItemProps) => {
+  return (
+    <ListItem
+      {...props}
+      endAction={
+        <IconButton aria-label="More" size="sm">
+          <MoreVertIcon />
+        </IconButton>
+      }
+    >
+      <ListItemButton selected={selected}>
+        <ListItemDecorator>
+          <Visa />
+        </ListItemDecorator>
+        <ListItemContent>
+          <Typography>yuuuup</Typography>
+          <Typography level="body-sm" noWrap>
+            expires asldkfsa
+          </Typography>
+        </ListItemContent>
+      </ListItemButton>
+    </ListItem>
+  );
+};
+
 export default function Home() {
   const [lockLimits, setLockLimits] = useState(false);
   return (
     <Container maxWidth="md">
       {/* <Header
         title="something goes here"
-        subtitle="foooobar"
+        subtitle="CreditCardListItemoobar"
         action={<Button>hi</Button>}
       /> */}
 
@@ -55,35 +93,23 @@ export default function Home() {
               number="1111222233334444"
               expirationDate="06/23"
             />
-            {/* <CreditCard
-              name="Sandra Franzberger"
-              number="1111222233334445"
-              expirationDate="06/23"
-            /> */}
+
             <Stack direction="row" spacing={1}>
               <Button variant="outlined">View card details</Button>
               <Button variant="outlined">View pin</Button>
             </Stack>
 
             <List>
-              <ListItem>
-                <ListItemButton selected>
-                  <div>logo</div>
-
-                  <Typography>yuuuup</Typography>
-                  <Typography>expires asldkfsa</Typography>
-                </ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>beans</ListItemButton>
-              </ListItem>
+              <CreditCardListItem selected />
+              <CreditCardListItem />
+              <CreditCardListItem />
 
               <ListItem>
                 <ListItemButton>
-                  <Typography>
+                  <ListItemDecorator>
                     <AddIcon />
-                    Add new card
-                  </Typography>
+                  </ListItemDecorator>
+                  <Typography>Add new card</Typography>
                 </ListItemButton>
               </ListItem>
             </List>
@@ -125,8 +151,8 @@ export default function Home() {
             </CardActions>
           </Card>
         </Grid>
-        <Grid xs={12} md={6}>
-          <Stack spacing={2}>
+        <Grid xs={12} md={4}>
+          <Stack spacing={5}>
             <CreditCard
               name="Sandra Franzberger"
               number="1111222233334445"

@@ -1,25 +1,14 @@
 import React from 'react';
-import { AspectRatio, AspectRatioProps, Stack, Typography } from '@mui/joy';
+import {
+  AspectRatio,
+  AspectRatioProps,
+  Sheet,
+  Stack,
+  Typography,
+} from '@mui/joy';
 import { Logo } from '../components';
 import { Mastercard } from './icons/Mastercard';
 import { Visa } from './icons/Visa';
-
-const Foo = ({ height = 40, width = 170 }: any) => {
-  return (
-    <svg
-      width={width}
-      height={height}
-      viewBox={`0 0 ${width} ${height}`}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M51.8601 28.138H63.8121V24.538H56.1081V10.978H51.8601V28.138Z"
-        fill="#000000"
-      />
-    </svg>
-  );
-};
 
 export interface CreditCardProps extends AspectRatioProps {
   name: string;
@@ -43,13 +32,14 @@ export const CreditCard = ({
   const cardType = issuer === 'Visa' ? <Visa /> : <Mastercard />;
 
   return (
-    <AspectRatio
-      ratio={`${width}/${height}`}
-      // component={Card}
+    <Sheet
+      // ratio={`${width}/${height}`}
+      // component={Sheet}
       variant="solid"
       color={color}
       // flex
       // maxHeight={300}
+      invertedColors
     >
       <div>
         <Stack
@@ -64,14 +54,25 @@ export const CreditCard = ({
 
           <Stack direction="row" justifyContent="space-between" width="100%">
             <div>
-              <Typography level="body-lg" letterSpacing={2.5}>
+              <Typography
+                level="body-lg"
+                letterSpacing={2.5}
+                noWrap
+                fontWeight="bold"
+              >
                 {number.replace(/\d{4}(?=.)/g, '$& ')}
               </Typography>
               <Stack direction="row" justifyContent="space-between" spacing={2}>
-                <Typography textTransform="uppercase" level="body-xs">
+                <Typography
+                  textTransform="uppercase"
+                  level="body-sm"
+                  fontWeight="bold"
+                >
                   {name}
                 </Typography>
-                <Typography level="body-xs">{expirationDate}</Typography>
+                <Typography level="body-sm" fontWeight="bold">
+                  {expirationDate}
+                </Typography>
               </Stack>
             </div>
 
@@ -79,8 +80,11 @@ export const CreditCard = ({
           </Stack>
         </Stack>
       </div>
-    </AspectRatio>
+    </Sheet>
   );
 };
 
 export default CreditCard;
+
+export * from './icons/Visa';
+export * from './icons/Mastercard';

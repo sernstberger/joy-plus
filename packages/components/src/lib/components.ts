@@ -1,6 +1,7 @@
 export * from './AppCard/AppCard';
 export * from './Carousel/Carousel';
 export * from './ChartCard/ChartCard';
+export * from './CreditCard/CreditCard';
 export * from './Layout/Layout';
 export * from './Logo/Logo';
 export * from './Header/Header';

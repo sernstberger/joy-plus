@@ -1,21 +1,15 @@
-import React from 'react';
 import {
   ChartCard,
-  Form,
   Header,
   Stat,
-  TextInput,
-  PhoneInput,
-  NumberInput,
-  EmailInput,
-  PasswordInput,
   PlayerControls,
   Post,
   AppCard,
-  CheckboxInput,
-  FileUploadInput,
 } from 'components';
-import { Button, Card, Checkbox, Container, Grid, Typography } from '@mui/joy';
+
+import { Form, NumberInput } from 'form';
+
+import { Button, Card, Container, Grid, Typography } from '@mui/joy';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { GitHub } from '@mui/icons-material';
 import Car from './car';

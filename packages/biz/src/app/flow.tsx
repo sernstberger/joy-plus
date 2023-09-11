@@ -1,6 +1,6 @@
 import {
   FeinInput,
-  Form,
+  // Form,
   TextInput,
   PhoneInput,
   DateInput,
@@ -8,100 +8,88 @@ import {
   SelectInput,
   CheckboxInput,
   FileUploadInput,
+  FormGroup,
 } from 'form';
-import { Divider, Grid, Stack, Typography } from '@mui/joy';
+import { Button, Divider, Grid, LinearProgress, Stack } from '@mui/joy';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
+
+import { DevTool } from '@hookform/devtools';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+
+export interface FormProps {
+  children: React.ReactNode;
+}
+
+export function Form({ children }: FormProps) {
+  // const methods = useForm({
+  //   defaultValues: {
+  //     // hello: "hi"
+  //     test: 'hi',
+  //   },
+  // });
+  const methods = useForm();
+  // const onSubmit = (data: any) => console.log('***', JSON.stringify(data));
+  // const onSubmit: SubmitHandler<any> = (data) => console.log(data);
+  const onSubmit = (data: any) => console.log(data);
+
+  return (
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmit)} noValidate>
+        <Stack spacing={2}>{children}</Stack>
+      </form>
+      <DevTool control={methods.control} /> {/* set up the dev tool */}
+    </FormProvider>
+  );
+}
+
+const One = () => {
+  return (
+    <div>
+      <h1>One</h1>
+      <TextInput fieldName="businessName" label="Business name" required />
+    </div>
+  );
+};
+
+const Two = () => {
+  return (
+    <div>
+      <h1>Two</h1>
+      <SelectInput fieldName="industry" label="Industry" />
+    </div>
+  );
+};
+
+const Three = () => {
+  return (
+    <div>
+      <h1>Three</h1>
+      <FeinInput fieldName="fein" label="FEIN" />
+    </div>
+  );
+};
 
 export default function Flow() {
   return (
     <div>
-      <Grid xs={12}>
-        <br />
-        <Divider />
-        <br />
-        <Form>
-          <FormGroup
-            primary="Personal information"
-            secondary="We just need it. Give it to us."
-          >
-            <FileUploadInput
-              accept={['png', 'pdf', 'woff', 'ts']}
-              maxFiles={6}
-            />
-            <TextInput
-              fieldName="businessName"
-              label="Business name"
-              required
-            />
-            <DateInput fieldName="effectiveDate" label="Effective date" />
-            <SelectInput fieldName="industry" label="Industry" />
-            {/* address should be a google autocomplete */}
-            <TextInput fieldName="mailingAddress" label="Mailing address" />
-            <FeinInput fieldName="fein" label="FEIN" />
-          </FormGroup>
-
-          <Divider />
-
-          <FormGroup primary="Owner info">
-            {/* need to be able to add multiple owners (use useFieldArray) */}
-
-            {/* <Grid container spacing={2}>
-                  <Grid xs={6}>
-                    <TextInput fieldName="firstName" label="First name" />
-                  </Grid>
-                  <Grid xs={6}>
-                    <TextInput fieldName="lastName" label="Last name" />
-                  </Grid>
-                </Grid> */}
-            <Stack
-              direction="row"
-              spacing={2}
-              // justifyContent="space-between"
-            >
-              <TextInput fieldName="firstName" label="First name" />
-              <TextInput fieldName="lastName" label="Last name" />
-            </Stack>
-            <SsnInput fieldName="ssn" label="Social security number" />
-            <DateInput
-              fieldName="birthday"
-              label="Birthday"
-              // slotProps={{
-              //   input: {
-              //     min: '2018-06-07T00:00',
-              //     max: '2018-06-14T00:00',
-              //   },
-              // }}
-            />
-            <PhoneInput fieldName="phone" label="Phone number" />
-            <TextInput
-              fieldName="ownershipPercentage"
-              label="Ownership percentage"
-              helperText="Some helper text goes here."
-            />
-            <CheckboxInput fieldName="agree" label="Do you agree to terms?" />
-          </FormGroup>
-        </Form>
-      </Grid>
+      <br />
+      <br />
+      <LinearProgress determinate value={25} />
+      <br />
+      <Link to="">one</Link>
+      <Link to="two">two</Link>
+      <Link to="three">three</Link>
+      <Form>
+        <Routes>
+          <Route index element={<One />} />
+          <Route path="two" element={<Two />} />
+          <Route path="three" element={<Three />} />
+          {/* <Route path="*" element={<NoMatch />} /> */}
+        </Routes>
+        <Button variant="solid" color="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
     </div>
   );
 }
-
-export const FormGroup = ({ children, primary, secondary }: any) => {
-  return (
-    <Grid container role="group" aria-labelledby="billing_head">
-      <Grid xs={12} sm={4}>
-        <Typography fontWeight="bold" id="billing_head">
-          {primary}
-        </Typography>
-        {secondary && <Typography level="body-sm">{secondary}</Typography>}
-      </Grid>
-      <Grid xs={12} sm={8}>
-        <Stack
-          spacing={2}
-          // alignItems="flex-start"
-        >
-          {children}
-        </Stack>
-      </Grid>
-    </Grid>
-  );
-};

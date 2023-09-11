@@ -19,7 +19,7 @@ export default function Flow() {
         <Divider />
         <br />
         <Form>
-          <FormSection
+          <FormGroup
             primary="Personal information"
             secondary="We just need it. Give it to us."
           >
@@ -37,11 +37,11 @@ export default function Flow() {
             {/* address should be a google autocomplete */}
             <TextInput fieldName="mailingAddress" label="Mailing address" />
             <FeinInput fieldName="fein" label="FEIN" />
-          </FormSection>
+          </FormGroup>
 
           <Divider />
 
-          <FormSection primary="Owner info">
+          <FormGroup primary="Owner info">
             {/* need to be able to add multiple owners (use useFieldArray) */}
 
             {/* <Grid container spacing={2}>
@@ -78,18 +78,20 @@ export default function Flow() {
               helperText="Some helper text goes here."
             />
             <CheckboxInput fieldName="agree" label="Do you agree to terms?" />
-          </FormSection>
+          </FormGroup>
         </Form>
       </Grid>
     </div>
   );
 }
 
-export const FormSection = ({ children, primary, secondary }: any) => {
+export const FormGroup = ({ children, primary, secondary }: any) => {
   return (
-    <Grid container>
+    <Grid container role="group" aria-labelledby="billing_head">
       <Grid xs={12} sm={4}>
-        <Typography fontWeight="bold">{primary}</Typography>
+        <Typography fontWeight="bold" id="billing_head">
+          {primary}
+        </Typography>
         {secondary && <Typography level="body-sm">{secondary}</Typography>}
       </Grid>
       <Grid xs={12} sm={8}>

@@ -16,6 +16,9 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { DevTool } from '@hookform/devtools';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { decrement, increment } from './flowSlice';
+
 export interface FormProps {
   children: React.ReactNode;
 }
@@ -43,10 +46,31 @@ export function Form({ children }: FormProps) {
 }
 
 const One = () => {
+  const flow = useSelector((state: any) => state.flow.value);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <h1>One</h1>
       <TextInput fieldName="businessName" label="Business name" required />
+
+      <div>
+        <div>
+          <button
+            aria-label="Increment value"
+            onClick={() => dispatch(increment())}
+          >
+            Increment
+          </button>
+          <span>{flow}</span>
+          <button
+            aria-label="Decrement value"
+            onClick={() => dispatch(decrement())}
+          >
+            Decrement
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

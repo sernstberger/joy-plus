@@ -2,6 +2,8 @@ import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import '@fontsource/inter';
 import { CssVarsProvider, extendTheme } from '@mui/joy/styles';
+import store from './app/store';
+import { Provider } from 'react-redux';
 
 import {
   experimental_extendTheme as materialExtendTheme,
@@ -61,13 +63,15 @@ const materialTheme = materialExtendTheme();
 
 root.render(
   <StrictMode>
-    <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
-      <CssVarsProvider theme={githubTheme}>
-        <CssBaseline />
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </CssVarsProvider>
-    </MaterialCssVarsProvider>
+    <Provider store={store}>
+      <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
+        <CssVarsProvider theme={githubTheme}>
+          <CssBaseline />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CssVarsProvider>
+      </MaterialCssVarsProvider>
+    </Provider>
   </StrictMode>,
 );

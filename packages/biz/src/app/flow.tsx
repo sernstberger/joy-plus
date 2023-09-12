@@ -46,31 +46,10 @@ export function Form({ children }: FormProps) {
 }
 
 const One = () => {
-  const flow = useSelector((state: any) => state.flow.value);
-  const dispatch = useDispatch();
-
   return (
     <div>
       <h1>One</h1>
       <TextInput fieldName="businessName" label="Business name" required />
-
-      <div>
-        <div>
-          <button
-            aria-label="Increment value"
-            onClick={() => dispatch(increment())}
-          >
-            Increment
-          </button>
-          <span>{flow}</span>
-          <button
-            aria-label="Decrement value"
-            onClick={() => dispatch(decrement())}
-          >
-            Decrement
-          </button>
-        </div>
-      </div>
     </div>
   );
 };
@@ -94,11 +73,17 @@ const Three = () => {
 };
 
 export default function Flow() {
+  const flow = useSelector((state: any) => state.flow.value);
+  const dispatch = useDispatch();
+
+  const bar = 10;
+  const value = (flow / bar) * 100;
   return (
     <div>
       <br />
       <br />
-      <LinearProgress determinate value={25} />
+      <LinearProgress determinate value={value} />
+      <div>{value}</div>
       <br />
       <Link to="">one</Link>
       <Link to="two">two</Link>
@@ -110,9 +95,24 @@ export default function Flow() {
           <Route path="three" element={<Three />} />
           {/* <Route path="*" element={<NoMatch />} /> */}
         </Routes>
-        <Button variant="solid" color="primary" type="submit">
-          Submit
-        </Button>
+        <Stack direction="row" justifyContent="space-between">
+          <Button
+            variant="outlined"
+            color="neutral"
+            type="submit"
+            onClick={() => dispatch(decrement())}
+          >
+            Back
+          </Button>
+          <Button
+            variant="solid"
+            color="primary"
+            type="submit"
+            onClick={() => dispatch(increment())}
+          >
+            Submit
+          </Button>
+        </Stack>
       </Form>
     </div>
   );

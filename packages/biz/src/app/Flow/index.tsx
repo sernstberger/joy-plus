@@ -10,6 +10,7 @@ import {
   FileUploadInput,
   FormGroup,
   Form,
+  FormBase,
 } from 'form';
 import { Button, Divider, Grid, LinearProgress, Stack } from '@mui/joy';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
@@ -30,7 +31,7 @@ const FlowStep = ({ children }: any) => {
   const dispatch = useDispatch();
 
   return (
-    <Form>
+    <FormBase>
       {children}
 
       <Stack direction="row" justifyContent="space-between">
@@ -51,7 +52,7 @@ const FlowStep = ({ children }: any) => {
           Submit
         </Button>
       </Stack>
-    </Form>
+    </FormBase>
   );
 };
 

@@ -8,6 +8,7 @@ export * from './EmailInput/EmailInput';
 export * from './FileUploadInput/FileUploadInput';
 export * from './FeinInput/FeinInput';
 export * from './Form/Form';
+export * from './FormBase/FormBase';
 export * from './FormGroup/FormGroup';
 export * from './NumberInput/NumberInput';
 export * from './PasswordInput/PasswordInput';

@@ -1,11 +1,11 @@
 import { DevTool } from '@hookform/devtools';
 import { FormProvider, useForm } from 'react-hook-form';
 
-export interface FormProps {
+export interface FormBaseProps {
   children: React.ReactNode;
 }
 
-export function FormBase({ children }: FormProps) {
+export function FormBase({ children }: FormBaseProps) {
   // const methods = useForm({
   //   defaultValues: {
   //     // hello: "hi"

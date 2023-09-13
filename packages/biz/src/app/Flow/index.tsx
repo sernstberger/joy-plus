@@ -13,7 +13,13 @@ import {
   FormBase,
 } from 'form';
 import { Button, Divider, Grid, LinearProgress, Stack } from '@mui/joy';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Link,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 
 import { DevTool } from '@hookform/devtools';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
@@ -30,6 +36,9 @@ const FlowStep = ({ children }: any) => {
   const flow = useSelector((state: any) => state.flow.value);
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+  const handleOnClick = () => navigate('two');
+
   return (
     <FormBase>
       {children}
@@ -39,7 +48,10 @@ const FlowStep = ({ children }: any) => {
           variant="outlined"
           color="neutral"
           type="submit"
-          onClick={() => dispatch(decrement())}
+          onClick={() => {
+            handleOnClick();
+            dispatch(decrement());
+          }}
         >
           Back
         </Button>
@@ -47,7 +59,10 @@ const FlowStep = ({ children }: any) => {
           variant="solid"
           color="primary"
           type="submit"
-          onClick={() => dispatch(increment())}
+          onClick={() => {
+            handleOnClick();
+            dispatch(increment());
+          }}
         >
           Submit
         </Button>
@@ -60,6 +75,7 @@ const One = () => {
   return (
     <>
       <TextInput fieldName="businessName" label="Business name" required />
+      <SsnInput fieldName="ssn" label="Social security number" />
     </>
   );
 };
@@ -67,6 +83,7 @@ const One = () => {
 const Two = () => {
   return (
     <>
+      <DateInput fieldName="effectiveDate" label="Effective date" />
       <SelectInput fieldName="industry" label="Industry" />
     </>
   );
@@ -76,6 +93,7 @@ const Three = () => {
   return (
     <>
       <FeinInput fieldName="fein" label="FEIN" />
+      <TextInput fieldName="mailingAddress" label="Mailing address" />
     </>
   );
 };

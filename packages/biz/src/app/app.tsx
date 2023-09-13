@@ -1,4 +1,4 @@
-import Flow from './flow';
+import Flow from './Flow';
 import { Route, Routes } from 'react-router-dom';
 
 import { Header, Layout } from 'components';

@@ -59,7 +59,6 @@ const FlowStep = ({ children }: any) => {
 const One = () => {
   return (
     <>
-      <h1>One</h1>
       <TextInput fieldName="businessName" label="Business name" required />
     </>
   );
@@ -68,7 +67,6 @@ const One = () => {
 const Two = () => {
   return (
     <>
-      <h1>Two</h1>
       <SelectInput fieldName="industry" label="Industry" />
     </>
   );
@@ -77,7 +75,6 @@ const Two = () => {
 const Three = () => {
   return (
     <>
-      <h1>Three</h1>
       <FeinInput fieldName="fein" label="FEIN" />
     </>
   );
@@ -138,11 +135,12 @@ export default function Flow() {
           }
         />
       </Routes>
-      <br />
+
       <br />
       <Divider />
       <br />
-      <br />
+
+      <h2>All together</h2>
       <Form>
         <One />
         <Two />

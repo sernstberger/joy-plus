@@ -19,6 +19,7 @@ import {
   Link,
   useLocation,
   useNavigate,
+  To,
 } from 'react-router-dom';
 
 import { DevTool } from '@hookform/devtools';
@@ -32,35 +33,43 @@ export interface FormProps {
   children: React.ReactNode;
 }
 
-const FlowStep = ({ children }: any) => {
+interface FlowStepProps {
+  children: React.ReactNode;
+  prevTo?: To;
+  nextTo: To;
+}
+
+const FlowStep = ({ children, prevTo, nextTo }: FlowStepProps) => {
   const flow = useSelector((state: any) => state.flow.value);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  const handleOnClick = () => navigate('two');
+  const handleOnClick = (to: To) => navigate(to);
 
   return (
     <FormBase>
       {children}
 
       <Stack direction="row" justifyContent="space-between">
-        <Button
-          variant="outlined"
-          color="neutral"
-          type="submit"
-          onClick={() => {
-            handleOnClick();
-            dispatch(decrement());
-          }}
-        >
-          Back
-        </Button>
+        {prevTo && (
+          <Button
+            variant="outlined"
+            color="neutral"
+            type="submit"
+            onClick={() => {
+              handleOnClick(prevTo);
+              dispatch(decrement());
+            }}
+          >
+            Back
+          </Button>
+        )}
         <Button
           variant="solid"
           color="primary"
           type="submit"
           onClick={() => {
-            handleOnClick();
+            handleOnClick(nextTo);
             dispatch(increment());
           }}
         >
@@ -123,15 +132,15 @@ export default function Flow() {
       </div>
       <div>value: {formatPercentage(value)}</div>
       <br />
-      <Link to="">one</Link>
+      {/* <Link to="">one</Link>
       <Link to="two">two</Link>
-      <Link to="three">three</Link>
+      <Link to="three">three</Link> */}
 
       <Routes>
         <Route
           index
           element={
-            <FlowStep>
+            <FlowStep nextTo="two">
               <One />
             </FlowStep>
           }
@@ -139,7 +148,7 @@ export default function Flow() {
         <Route
           path="two"
           element={
-            <FlowStep>
+            <FlowStep prevTo="/products/one" nextTo="/products/three">
               <Two />
             </FlowStep>
           }
@@ -147,7 +156,7 @@ export default function Flow() {
         <Route
           path="three"
           element={
-            <FlowStep>
+            <FlowStep prevTo="/products/two" nextTo="/products/done">
               <Three />
             </FlowStep>
           }

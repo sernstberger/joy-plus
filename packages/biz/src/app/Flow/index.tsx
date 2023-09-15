@@ -1,10 +1,10 @@
 import React from 'react';
 import { LinearProgress, Typography } from '@mui/joy';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatPercentage } from 'utils';
 import { FlowStepProps } from './FlowStep';
-import { setMaxSteps } from './flowSlice';
+import { setMaxSteps, updateStep } from './flowSlice';
 
 interface FlowProps {
   children:
@@ -24,6 +24,20 @@ export default function Flow({ children }: FlowProps) {
     dispatch(setMaxSteps(totalSteps));
   }, [totalSteps, dispatch]);
 
+  const paths = React.Children.map(
+    children,
+    (child: React.ReactElement<FlowStepProps>) => child.props.path,
+  );
+
+  const location = useLocation();
+  const currentStep = paths.indexOf(location.pathname.split('/quote/')[1]) + 1; // +1 because array index starts from 0
+
+  React.useEffect(() => {
+    if (currentStep !== flow) {
+      dispatch(updateStep(currentStep)); // Update the step in the redux store
+    }
+  }, [currentStep, flow, dispatch]);
+
   const renderedRoutes = React.Children.map(
     children,
     (child: React.ReactElement<FlowStepProps>) => (
@@ -41,8 +55,6 @@ export default function Flow({ children }: FlowProps) {
       <Typography>
         step {flow} of {totalSteps} / {formatPercentage(value)}
       </Typography>
-
-      <br />
 
       <Routes>
         {/* children should always be FlowSteps */}

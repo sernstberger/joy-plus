@@ -5,7 +5,12 @@ import Quote from './Quote';
 
 export function App() {
   return (
-    <Layout orientation="vertical">
+    <Layout
+      orientation="vertical"
+      ContainerProps={{
+        maxWidth: 'xs',
+      }}
+    >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="quote/*" element={<Quote />} />

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Container, Sheet } from '@mui/joy';
+import { Box, Container, ContainerProps, Sheet } from '@mui/joy';
 import HomeIcon from '@mui/icons-material/Home';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import ScoreboardIcon from '@mui/icons-material/Scoreboard';
@@ -11,12 +11,14 @@ export interface LayoutProps {
   orientation?: 'horizontal' | 'vertical';
   children: React.ReactNode;
   size?: number;
+  ContainerProps?: ContainerProps;
 }
 
 export function Layout({
   children,
   orientation = 'vertical',
   size,
+  ContainerProps,
 }: LayoutProps) {
   const horizontalOrientation = orientation === 'horizontal';
   const defaultSize = horizontalOrientation ? 60 : 200;
@@ -77,7 +79,7 @@ export function Layout({
           height: horizontalOrientation ? undefined : '100vh',
         }}
       >
-        <Container>{children}</Container>
+        <Container {...ContainerProps}>{children}</Container>
       </Box>
     </Box>
   );

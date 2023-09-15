@@ -7,7 +7,7 @@ interface FlowState {
 
 const initialState: FlowState = {
   value: 1,
-  maxSteps: 3, // Initially set to 3, but this can be changed dynamically later if needed
+  maxSteps: 10, // Initially set to 10, but this can be changed dynamically later if needed
 };
 
 export const flowSlice = createSlice({
@@ -27,10 +27,14 @@ export const flowSlice = createSlice({
     setMaxSteps: (state, action: PayloadAction<number>) => {
       state.maxSteps = action.payload;
     },
+    updateStep: (state, action) => {
+      state.value = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, setMaxSteps } = flowSlice.actions;
+export const { increment, decrement, setMaxSteps, updateStep } =
+  flowSlice.actions;
 
 export default flowSlice.reducer;

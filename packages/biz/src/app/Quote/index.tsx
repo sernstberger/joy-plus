@@ -7,7 +7,6 @@ import {
   Form,
 } from 'form';
 import { Divider } from '@mui/joy';
-import { useSelector, useDispatch } from 'react-redux';
 import Flow from '../Flow';
 import FlowStep from '../Flow/FlowStep';
 
@@ -43,9 +42,6 @@ const Three = () => {
 };
 
 export default function Quote() {
-  const flow = useSelector((state: any) => state.flow.value);
-  const dispatch = useDispatch();
-
   return (
     <div>
       <Flow>
@@ -64,7 +60,6 @@ export default function Quote() {
 
       <br />
       <Divider />
-      <br />
 
       <h2>All together</h2>
       <Form>

@@ -5,33 +5,29 @@ import { formatPercentage } from 'utils';
 import FlowStep, { FlowStepProps } from './FlowStep';
 import React from 'react';
 
-export interface FormProps {
-  children: React.ReactNode;
+interface FlowProps {
+  children:
+    | React.ReactElement<FlowStepProps>[]
+    | React.ReactElement<FlowStepProps>;
 }
 
-function isFlowStep(child: any): child is React.ReactElement<FlowStepProps> {
-  return React.isValidElement(child) && child.type === FlowStep;
-}
-
-export default function Flow({ children }: any) {
+export default function Flow({ children }: FlowProps) {
   const flow = useSelector((state: any) => state.flow.value);
   const dispatch = useDispatch();
 
   const totalSteps = 10;
   const value = (flow / totalSteps) * 100;
 
-  const renderedRoutes = React.Children.map(children, (child) => {
-    if (isFlowStep(child)) {
-      return (
-        <Route
-          path={child.props.path}
-          index={child.props.index}
-          element={React.cloneElement(child)}
-        />
-      );
-    }
-    return child; // Return the child as is if it's not a FlowStep
-  });
+  const renderedRoutes = React.Children.map(
+    children,
+    (child: React.ReactElement<FlowStepProps>) => (
+      <Route
+        path={child.props.path}
+        index={child.props.index}
+        element={React.cloneElement(child)}
+      />
+    ),
+  );
 
   return (
     <div>

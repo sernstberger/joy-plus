@@ -23,6 +23,9 @@
       ],
       "form": [
         "packages/form/src/index.ts"
+      ],
+      "utils": [
+        "utils/src/index.ts"
       ]
     }
   },

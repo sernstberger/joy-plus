@@ -1,3 +1,4 @@
+import { Children } from 'react';
 import {
   FeinInput,
   TextInput,
@@ -23,7 +24,7 @@ import {
 
 import { useSelector, useDispatch } from 'react-redux';
 import { decrement, increment } from './flowSlice';
-import { Children } from 'react';
+import { formatPercentage } from 'utils';
 
 export interface FormProps {
   children: React.ReactNode;
@@ -101,15 +102,6 @@ const Three = () => {
       <TextInput fieldName="mailingAddress" label="Mailing address" />
     </>
   );
-};
-
-const formatPercentage = (value: number) => {
-  const formattedValue = Number(value / 100).toLocaleString(undefined, {
-    style: 'percent',
-    // minimumFractionDigits: 2,
-  });
-
-  return formattedValue;
 };
 
 export default function Flow() {

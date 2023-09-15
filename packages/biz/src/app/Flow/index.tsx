@@ -1,9 +1,9 @@
+import React from 'react';
 import { LinearProgress, Typography } from '@mui/joy';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatPercentage } from 'utils';
-import FlowStep, { FlowStepProps } from './FlowStep';
-import React from 'react';
+import { FlowStepProps } from './FlowStep';
 
 interface FlowProps {
   children:
@@ -15,7 +15,7 @@ export default function Flow({ children }: FlowProps) {
   const flow = useSelector((state: any) => state.flow.value);
   const dispatch = useDispatch();
 
-  const totalSteps = 10;
+  const totalSteps = React.Children.count(children);
   const value = (flow / totalSteps) * 100;
 
   const renderedRoutes = React.Children.map(

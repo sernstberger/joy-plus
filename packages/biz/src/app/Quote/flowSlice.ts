@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const flowSlice = createSlice({
   name: 'flow',
   initialState: {
-    value: 0,
+    value: 1,
   },
   reducers: {
     increment: (state) => {

@@ -1,28 +1,36 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface FlowState {
+  value: number;
+  maxSteps: number;
+}
+
+const initialState: FlowState = {
+  value: 1,
+  maxSteps: 3, // Initially set to 3, but this can be changed dynamically later if needed
+};
 
 export const flowSlice = createSlice({
   name: 'flow',
-  initialState: {
-    value: 1,
-  },
+  initialState,
   reducers: {
     increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+      if (state.value < state.maxSteps) {
+        state.value += 1;
+      }
     },
     decrement: (state) => {
-      state.value -= 1;
+      if (state.value > 1) {
+        state.value -= 1;
+      }
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    setMaxSteps: (state, action: PayloadAction<number>) => {
+      state.maxSteps = action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = flowSlice.actions;
+export const { increment, decrement, setMaxSteps } = flowSlice.actions;
 
 export default flowSlice.reducer;

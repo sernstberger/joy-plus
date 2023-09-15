@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatPercentage } from 'utils';
 import { FlowStepProps } from './FlowStep';
+import { setMaxSteps } from './flowSlice';
 
 interface FlowProps {
   children:
@@ -17,6 +18,11 @@ export default function Flow({ children }: FlowProps) {
 
   const totalSteps = React.Children.count(children);
   const value = (flow / totalSteps) * 100;
+
+  // Set maxSteps in Redux store when Flow component is mounted
+  React.useEffect(() => {
+    dispatch(setMaxSteps(totalSteps));
+  }, [totalSteps, dispatch]);
 
   const renderedRoutes = React.Children.map(
     children,

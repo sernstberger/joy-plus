@@ -10,9 +10,17 @@ export interface FlowStepProps {
   index?: boolean;
   prevTo?: To;
   nextTo: To;
+  submitText?: string;
 }
 
-const FlowStep = ({ children, path, index, prevTo, nextTo }: FlowStepProps) => {
+const FlowStep = ({
+  children,
+  path,
+  index,
+  prevTo,
+  nextTo,
+  submitText = 'Next',
+}: FlowStepProps) => {
   const flow = useSelector((state: any) => state.flow.value);
   const dispatch = useDispatch();
 
@@ -45,7 +53,7 @@ const FlowStep = ({ children, path, index, prevTo, nextTo }: FlowStepProps) => {
             dispatch(increment());
           }}
         >
-          Submit
+          {submitText}
         </Button>
       </Stack>
     </FormBase>

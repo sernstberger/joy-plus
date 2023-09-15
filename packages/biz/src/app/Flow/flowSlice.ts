@@ -6,7 +6,7 @@ interface FlowState {
 }
 
 const initialState: FlowState = {
-  value: 1,
+  value: 0,
   maxSteps: 10, // Initially set to 10, but this can be changed dynamically later if needed
 };
 

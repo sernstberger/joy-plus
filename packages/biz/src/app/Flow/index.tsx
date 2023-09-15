@@ -1,6 +1,6 @@
 import React from 'react';
 import { LinearProgress, Typography } from '@mui/joy';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatPercentage } from 'utils';
 import { FlowStepProps } from './FlowStep';
@@ -57,8 +57,11 @@ export default function Flow({ children }: FlowProps) {
       </Typography>
 
       <Routes>
+        {/* <Route index element={ React.Children.toArray(children)[0]} /> */}
+
         {/* children should always be FlowSteps */}
         {renderedRoutes}
+        <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </div>
   );

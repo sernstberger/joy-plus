@@ -14,7 +14,7 @@ export interface FormProps {
   children: React.ReactNode;
 }
 
-const One = () => {
+export const One = () => {
   return (
     <>
       <TextInput fieldName="businessName" label="Business name" required />
@@ -45,7 +45,8 @@ export default function Quote() {
   return (
     <div>
       <Flow>
-        <FlowStep index nextTo="two">
+        {/* <FlowStep index nextTo="two"> */}
+        <FlowStep path="one" nextTo="/quote/two">
           <One />
         </FlowStep>
 
@@ -53,7 +54,12 @@ export default function Quote() {
           <Two />
         </FlowStep>
 
-        <FlowStep path="three" prevTo="/quote/two" nextTo="/quote/done">
+        <FlowStep
+          path="three"
+          prevTo="/quote/two"
+          nextTo="/quote/done"
+          submitText="Submit"
+        >
           <Three />
         </FlowStep>
       </Flow>

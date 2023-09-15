@@ -7,7 +7,6 @@ import {
   Form,
 } from 'form';
 import { Divider } from '@mui/joy';
-import { Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Flow from '../Flow';
 import FlowStep from '../Flow/FlowStep';
@@ -50,30 +49,17 @@ export default function Quote() {
   return (
     <div>
       <Flow>
-        <Route
-          index
-          element={
-            <FlowStep nextTo="two">
-              <One />
-            </FlowStep>
-          }
-        />
-        <Route
-          path="two"
-          element={
-            <FlowStep prevTo="/quote/one" nextTo="/quote/three">
-              <Two />
-            </FlowStep>
-          }
-        />
-        <Route
-          path="three"
-          element={
-            <FlowStep prevTo="/quote/two" nextTo="/quote/done">
-              <Three />
-            </FlowStep>
-          }
-        />
+        <FlowStep index nextTo="two">
+          <One />
+        </FlowStep>
+
+        <FlowStep path="two" prevTo="/quote/one" nextTo="/quote/three">
+          <Two />
+        </FlowStep>
+
+        <FlowStep path="three" prevTo="/quote/two" nextTo="/quote/done">
+          <Three />
+        </FlowStep>
       </Flow>
 
       <br />

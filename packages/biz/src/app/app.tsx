@@ -1,25 +1,15 @@
-import Flow from './Flow';
 import { Route, Routes } from 'react-router-dom';
-
-import { Header, Layout } from 'components';
-import { Button } from '@mui/joy';
+import { Layout } from 'components';
 import Home from './home';
+import Quote from './Quote';
 
 export function App() {
   return (
     <Layout orientation="vertical">
-      <Header
-        title="hello"
-        subtitle="Things can go here"
-        action={<Button>cool</Button>}
-      />
-
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="products/*" element={<Flow />} />
+        <Route path="quote/*" element={<Quote />} />
       </Routes>
-
-      {/* <Home /> */}
     </Layout>
   );
 }

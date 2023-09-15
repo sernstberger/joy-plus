@@ -18,7 +18,7 @@ import {
 import { useState } from 'react';
 import { ListItemButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import { CreditCard } from 'components';
+import { CreditCard, Header } from 'components';
 import { Visa } from 'components';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
@@ -72,11 +72,11 @@ export default function Home() {
   const [lockLimits, setLockLimits] = useState(false);
   return (
     <Container maxWidth="md">
-      {/* <Header
-        title="something goes here"
-        subtitle="CreditCardListItemoobar"
-        action={<Button>hi</Button>}
-      /> */}
+      <Header
+        title="hello"
+        subtitle="Things can go here"
+        action={<Button>cool</Button>}
+      />
 
       <Grid
         container

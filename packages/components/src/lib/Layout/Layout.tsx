@@ -62,7 +62,7 @@ export function Layout({
         <NavList
           links={[
             { title: 'Home', icon: <HomeIcon />, to: '/' },
-            { title: 'Products', icon: <InventoryIcon />, to: 'products' },
+            { title: 'Quote', icon: <InventoryIcon />, to: 'quote' },
             { title: 'Scores', icon: <ScoreboardIcon />, to: 'scores' },
           ]}
           {...{ orientation }}

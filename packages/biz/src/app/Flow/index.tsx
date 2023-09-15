@@ -6,7 +6,7 @@ import {
   SelectInput,
   Form,
 } from 'form';
-import { Divider, LinearProgress } from '@mui/joy';
+import { Divider, LinearProgress, Typography } from '@mui/joy';
 import { Routes, Route } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -55,10 +55,10 @@ export default function Flow() {
       <br />
       <br />
       <LinearProgress determinate value={value} />
-      <div>
-        step {flow} of {totalSteps}
-      </div>
-      <div>value: {formatPercentage(value)}</div>
+      <Typography>
+        step {flow} of {totalSteps} / {formatPercentage(value)}
+      </Typography>
+
       <br />
       {/* <Link to="">one</Link>
       <Link to="two">two</Link>

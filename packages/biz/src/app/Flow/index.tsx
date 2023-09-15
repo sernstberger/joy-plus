@@ -1,81 +1,21 @@
-import { Children } from 'react';
 import {
   FeinInput,
   TextInput,
-  PhoneInput,
   DateInput,
   SsnInput,
   SelectInput,
-  CheckboxInput,
-  FileUploadInput,
-  FormGroup,
   Form,
-  FormBase,
 } from 'form';
-import { Button, Divider, LinearProgress, Stack } from '@mui/joy';
-import {
-  Routes,
-  Route,
-  Link,
-  useLocation,
-  useNavigate,
-  To,
-} from 'react-router-dom';
+import { Divider, LinearProgress } from '@mui/joy';
+import { Routes, Route } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { decrement, increment } from './flowSlice';
 import { formatPercentage } from 'utils';
+import FlowStep from './FlowStep';
 
 export interface FormProps {
   children: React.ReactNode;
 }
-
-interface FlowStepProps {
-  children: React.ReactNode;
-  prevTo?: To;
-  nextTo: To;
-}
-
-const FlowStep = ({ children, prevTo, nextTo }: FlowStepProps) => {
-  const flow = useSelector((state: any) => state.flow.value);
-  const dispatch = useDispatch();
-
-  const navigate = useNavigate();
-  const handleOnClick = (to: To) => navigate(to);
-
-  return (
-    <FormBase>
-      {children}
-
-      <Stack direction="row" justifyContent="space-between">
-        {prevTo && (
-          <Button
-            variant="outlined"
-            color="neutral"
-            type="submit"
-            onClick={() => {
-              handleOnClick(prevTo);
-              dispatch(decrement());
-            }}
-          >
-            Back
-          </Button>
-        )}
-        <Button
-          variant="solid"
-          color="primary"
-          type="submit"
-          onClick={() => {
-            handleOnClick(nextTo);
-            dispatch(increment());
-          }}
-        >
-          Submit
-        </Button>
-      </Stack>
-    </FormBase>
-  );
-};
 
 const One = () => {
   return (

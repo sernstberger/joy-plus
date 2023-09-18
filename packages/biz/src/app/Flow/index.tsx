@@ -1,10 +1,12 @@
 import React from 'react';
 import { LinearProgress, Typography } from '@mui/joy';
-import { Outlet, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatPercentage } from 'utils';
-import { FlowStepProps } from './FlowStep';
+import { FlowStepProps } from 'form';
 import { setMaxSteps, updateStep } from './flowSlice';
+import { FormProvider, useForm } from 'react-hook-form';
+import { DevTool } from '@hookform/devtools';
 
 interface FlowProps {
   children:
@@ -49,13 +51,14 @@ export default function Flow({ children }: FlowProps) {
     ),
   );
 
+  const methods = useForm();
+
   return (
-    <div>
+    <FormProvider {...methods}>
       <LinearProgress determinate value={value} />
       <Typography>
         step {flow} of {totalSteps} / {formatPercentage(value)}
       </Typography>
-
       <Routes>
         {/* <Route index element={ React.Children.toArray(children)[0]} /> */}
 
@@ -63,6 +66,7 @@ export default function Flow({ children }: FlowProps) {
         {renderedRoutes}
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
-    </div>
+      <DevTool control={methods.control} /> {/* set up the dev tool */}
+    </FormProvider>
   );
 }

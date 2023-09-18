@@ -8,7 +8,7 @@ import {
 } from 'form';
 import { Divider } from '@mui/joy';
 import Flow from '../Flow';
-import FlowStep from '../Flow/FlowStep';
+import { FlowStep } from 'form';
 
 export interface FormProps {
   children: React.ReactNode;

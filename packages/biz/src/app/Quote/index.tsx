@@ -7,8 +7,8 @@ import {
   Form,
 } from 'form';
 import { Divider } from '@mui/joy';
-import Flow from '../Flow';
-import { FlowStep } from 'form';
+import { Flow, FlowStep } from 'form';
+import { setMaxSteps, updateStep } from '../Flow/flowSlice';
 
 export interface FormProps {
   children: React.ReactNode;
@@ -44,7 +44,7 @@ const Three = () => {
 export default function Quote() {
   return (
     <div>
-      <Flow>
+      <Flow {...{ setMaxSteps, updateStep }}>
         {/* <FlowStep index nextTo="two"> */}
         <FlowStep path="one" nextTo="/quote/two">
           <One />
@@ -64,7 +64,7 @@ export default function Quote() {
         </FlowStep>
       </Flow>
 
-      <br />
+      {/* <br />
       <Divider />
 
       <h2>All together</h2>
@@ -72,7 +72,7 @@ export default function Quote() {
         <One />
         <Two />
         <Three />
-      </Form>
+      </Form> */}
     </div>
   );
 }

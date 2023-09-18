@@ -3,8 +3,8 @@ import { LinearProgress, Typography } from '@mui/joy';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatPercentage } from 'utils';
-import { FlowStepProps } from 'form';
-import { setMaxSteps, updateStep } from './flowSlice';
+import { FlowStepProps } from '../FlowStep/FlowStep';
+
 import { FormProvider, useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 
@@ -12,9 +12,12 @@ interface FlowProps {
   children:
     | React.ReactElement<FlowStepProps>[]
     | React.ReactElement<FlowStepProps>;
+
+  setMaxSteps: any;
+  updateStep: any;
 }
 
-export default function Flow({ children }: FlowProps) {
+export function Flow({ children, setMaxSteps, updateStep }: FlowProps) {
   const flow = useSelector((state: any) => state.flow.value);
   const dispatch = useDispatch();
 
@@ -70,3 +73,5 @@ export default function Flow({ children }: FlowProps) {
     </FormProvider>
   );
 }
+
+export default Flow;

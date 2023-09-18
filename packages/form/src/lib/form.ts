@@ -7,6 +7,7 @@ export * from './DateInput/DateInput';
 export * from './EmailInput/EmailInput';
 export * from './FileUploadInput/FileUploadInput';
 export * from './FeinInput/FeinInput';
+export * from './Flow/Flow';
 export * from './FlowStep/FlowStep';
 export * from './Form/Form';
 export * from './FormGroup/FormGroup';
